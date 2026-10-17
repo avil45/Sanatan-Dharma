@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>लाइव एवं लीला | सनातन धर्म संस्था, बस्ती</title><meta name="description" content="श्री रामलीला महोत्सव का सीधा प्रसारण और पिछले सभी लाइव, सनातन धर्म संस्था बस्ती।"><meta name="theme-color" content="#0b0407"><link rel="icon" href="logo.webp"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet"><link rel="stylesheet" href="style1.css"></head><body data-p="live.html"><div id="hdr"></div>
+<!DOCTYPE html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>लाइव एवं लीला | सनातन धर्म संस्था, बस्ती</title><meta name="description" content="श्री रामलीला महोत्सव का सीधा प्रसारण और पिछले सभी लाइव, सनातन धर्म संस्था बस्ती।"><meta name="theme-color" content="#0b0407"><link rel="icon" href="logo.webp"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet"><link rel="stylesheet" href="style1.css"><style>.soon{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:24px;background:radial-gradient(60% 60% at 50% 40%,#3a0f1c,#0b0407)}.soon h3{font-size:clamp(1.8rem,5vw,3rem)}.soon p{color:var(--mut);max-width:540px}.soon .cdn{margin-top:14px}.cdn .cl{color:var(--mut);font-size:.85rem;margin-bottom:10px}.cdn .cb{display:flex;gap:10px;justify-content:center}.cdn .cb div{min-width:66px;padding:10px 6px;border:1px solid var(--line);border-radius:14px;background:var(--card)}.cdn b{display:block;font:400 1.8rem "Rozha One";color:var(--gold);line-height:1.2}.cdn small{color:var(--mut);font-size:.72rem}@media(max-width:560px){.cdn .cb{gap:6px}.cdn .cb div{min-width:54px}.cdn b{font-size:1.4rem}}</style></head><body data-p="live.html"><div id="hdr"></div>
 <div class="ph"><div class="wrap"><div class="crumb"><a href="index.html">मुखपृष्ठ</a> › लाइव एवं लीला</div><h1 class="gold">सीधा प्रसारण</h1><p class="sub">12 से 21 नवम्बर · प्रतिदिन सायं 6:30 – रात्रि 10:30 · श्री रामलीला महोत्सव 2026</p></div></div>
-<section style="padding-top:10px"><div class="wrap"><div class="live" style="margin-bottom:14px" id="lt">लाइव प्रसारण</div><div class="vid"><iframe id="pl" allow="accelerometer;autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen title="वीडियो"></iframe></div><div style="margin:20px 0;display:flex;gap:12px;flex-wrap:wrap"><a class="btn p" target="_blank" href="https://www.youtube.com/@sanatandharmsanstha/streams">YouTube पर देखें ↗</a><a class="btn" target="_blank" href="https://www.youtube.com/@sanatandharmsanstha?sub_confirmation=1">सब्सक्राइब करें</a></div>
+<section style="padding-top:10px"><div class="wrap"><div class="live" style="margin-bottom:14px" id="lt">लाइव प्रसारण</div><div class="vid"><div class="soon" id="soon"><div class="eyebrow">॥ जय श्री राम ॥</div><h3 class="gold" id="st">प्रसारण शीघ्र प्रारम्भ होगा</h3><p id="sm"></p><div class="cdn" id="cdn"></div></div><iframe id="pl" style="display:none" allow="accelerometer;autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen title="वीडियो"></iframe></div><div style="margin:20px 0;display:flex;gap:12px;flex-wrap:wrap"><a class="btn p" target="_blank" href="https://www.youtube.com/@sanatandharmsanstha/streams">YouTube पर देखें ↗</a><a class="btn" target="_blank" href="https://www.youtube.com/@sanatandharmsanstha?sub_confirmation=1">सब्सक्राइब करें</a></div>
 <div class="c" style="margin-top:50px"><div class="eyebrow">दस संध्याएँ</div><h2 class="sec-h">तारीख़ चुनें</h2><p class="sub">जिस दिन पर क्लिक करेंगे, उसी दिन का वीडियो ऊपर चलेगा।</p></div><div class="tabs" id="tb"></div></div></section>
 <section style="padding-top:0"><div class="wrap"><div class="c"><div class="eyebrow">संग्रह</div><h2 class="sec-h">सभी <span class="gold">पिछले लाइव</span></h2></div><div class="grid g3" id="pv"></div></div></section><div id="ftr"></div><script src="main.js"></script><script>
 /* केवल यही हिस्सा बदलें */
@@ -8,9 +8,44 @@ const CHANNEL_ID="UCC-PMZzH_oargLyuGdUjAAw";
 const PREVIOUS=[["kpL2gVRiGl4","प्रथम"],["nER70fMlZOA","द्वितीय"],["cVaLj52LhrA","तृतीय"],["Z1UyScC7Om8","चतुर्थ"],["JOfshKAoNec","पंचम"],["jLIjtm09tpU","षष्टम्"],["sRQC436ueFU","सप्तम"],["KT18vv7F6P4","अष्टम"],["FLzvdbfwM-0","नवम"]].map(([id,n])=>({id,title:n+" दिवस श्री रामलीला महोत्सव, बस्ती (षष्टम वर्ष)"}));
 /* हर दिन का वीडियो: video:"" में YouTube वीडियो की ID डालें */
 const DAYS=[12,13,14,15,16,17,18,19,20,21].map(d=>({d,video:""}));
-const E="https://www.youtube.com/embed/",pl=document.getElementById("pl"),tb=document.getElementById("tb"),lt=document.getElementById("lt");
-function play(src,live){pl.src=src+(src.includes("?")?"&":"?")+"rel=0";lt.style.display=live?"inline-flex":"none"}
-play(E+"live_stream?channel="+CHANNEL_ID,true);
-DAYS.forEach((x,i)=>{const b=document.createElement("button");b.innerHTML="<b>"+x.d+"</b><br><small>नव.</small>";b.onclick=()=>{[...tb.children].forEach(c=>c.classList.remove("on"));b.classList.add("on");x.video?play(E+x.video.replace(/.*(v=|youtu.be\/)/,""),false):play(E+"live_stream?channel="+CHANNEL_ID,true)};tb.appendChild(b)});
+const E="https://www.youtube.com/embed/",pl=document.getElementById("pl"),tb=document.getElementById("tb"),lt=document.getElementById("lt"),soon=document.getElementById("soon");
+/* लाइव शुरू करते समय टेस्ट के लिए true कर दें, बाद में false */
+const FORCE_LIVE=false;
+const LIVE_SRC=E+"live_stream?channel="+CHANNEL_ID;
+const FIRST=new Date("2026-11-12T18:30:00+05:30");
+let manual=false;
+function ist(){return new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kolkata"}))}
+function state(){
+ if(FORCE_LIVE)return"live";
+ const n=ist(),m=n.getHours()*60+n.getMinutes();
+ if(n<new Date(2026,10,12))return"before";
+ if(n>new Date(2026,10,21,23,59))return"after";
+ return(m>=1095&&m<=1380)?"live":"between"; /* सायं 6:15 से रात्रि 11:00 */
+}
+function showSoon(s){
+ pl.removeAttribute("src");pl.style.display="none";soon.style.display="flex";lt.style.display="none";
+ const T={before:["प्रसारण शीघ्र प्रारम्भ होगा","श्री रामलीला महोत्सव 12 नवम्बर, सायं 6:30 बजे से सीधा प्रसारित होगा।"],
+  between:["आज का प्रसारण शीघ्र प्रारम्भ होगा","श्री रामलीला महोत्सव आज सायं 6:30 बजे से सीधा प्रसारित होगा।"],
+  after:["श्री रामलीला महोत्सव सम्पन्न","सीधा प्रसारण सम्पन्न हुआ। सभी संध्याओं की लीला नीचे उपलब्ध है।"]}[s];
+ document.getElementById("st").textContent=T[0];document.getElementById("sm").textContent=T[1];
+ tick();
+}
+function showPlayer(src,live){soon.style.display="none";pl.style.display="block";pl.src=src+(src.includes("?")?"&":"?")+"rel=0";lt.style.display=live?"inline-flex":"none"}
+let last=state();
+function auto(){const s=state();last=s;s==="live"?showPlayer(LIVE_SRC,true):showSoon(s)}
+auto();
+function nextMs(){const n=ist();let t=new Date(n.getFullYear(),n.getMonth(),n.getDate(),18,30,0);if(n>=t)t.setDate(t.getDate()+1);
+ const a=new Date(2026,10,12,18,30),z=new Date(2026,10,21,18,30);if(t<a)t=a;if(t>z)return null;return t-n}
+function tick(){
+ const s=state();
+ if(!manual&&s!==last){auto();return}
+ const c=document.getElementById("cdn");
+ if(soon.style.display==="none"||s==="live"||s==="after"){c.innerHTML="";return}
+ const d=nextMs();if(d==null){c.innerHTML="";return}
+ const D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4),S=Math.floor(d%6e4/1e3);
+ c.innerHTML='<div class="cl">प्रसारण प्रारम्भ होने में शेष</div><div class="cb">'+[[D,"दिन"],[H,"घंटे"],[M,"मिनट"],[S,"सेकंड"]].map(([v,l])=>"<div><b>"+String(v).padStart(2,"0")+"</b><small>"+l+"</small></div>").join("")+"</div>";
+}
+setInterval(tick,1000);
+DAYS.forEach((x,i)=>{const b=document.createElement("button");b.innerHTML="<b>"+x.d+"</b><br><small>नव.</small>";b.onclick=()=>{[...tb.children].forEach(c=>c.classList.remove("on"));b.classList.add("on");if(x.video){manual=true;showPlayer(E+x.video.replace(/.*(v=|youtu.be\/)/,""),false)}else{manual=false;auto()}};tb.appendChild(b)});
 document.getElementById("pv").innerHTML=PREVIOUS.map(v=>`<a class="vc rv in" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt=""><p>${v.title}</p></a>`).join("");
 </script></body></html>
