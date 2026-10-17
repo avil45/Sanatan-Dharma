@@ -33,7 +33,7 @@
   }
   function render(d, el) {
     var list = S[d] || [], wd = "";
-    try { wd = new Date(2026, 10, d).toLocaleDateString("hi-IN", { weekday: "long" }); } catch (e) {}
+    wd = ["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"][new Date(2026, 10, d).getDay()];
     var today = istDay() === d;
     el.innerHTML =
       '<div class="sp-head"><div class="sp-d"><b>' + d + '</b><small>नवम्बर</small></div>' +
