@@ -19,6 +19,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+/* Circular poster shown as-is: no frame, border, clip or shadow added by the page */
+.hero-art .orb{position:relative;z-index:2;width:min(100%,520px);aspect-ratio:1/1;margin:0 auto;padding:0;border:0;background:none;box-shadow:none;filter:none;clip-path:none;border-radius:0;overflow:visible}
+.hero-art .orb img{display:block;width:100%;height:auto;border-radius:0;clip-path:none;filter:none;box-shadow:none}
+@media (max-width:760px){.hero-art .orb{width:min(90vw,420px)}}
+</style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -70,7 +76,7 @@
     </div>
     <div class="hero-art reveal fade" style="--d:2">
       <div class="mandala" aria-hidden="true"></div><div class="mandala m2" aria-hidden="true"></div>
-      <div class="arch" data-tilt><div class="arch-in"><img src="poster.webp" alt="श्री रामलीला महोत्सव बस्ती 2026 का आमंत्रण पोस्टर" width="626" height="939" fetchpriority="high"></div></div>
+      <div class="orb" data-tilt><img src="poster.webp" alt="श्री रामलीला महोत्सव बस्ती 2026 का आमंत्रण पोस्टर" width="1000" height="1000" fetchpriority="high"></div>
       <div class="seal" aria-label="सातवाँ वर्ष"><div><b>७</b><small>वाँ वर्ष</small></div></div>
     </div>
   </div>
