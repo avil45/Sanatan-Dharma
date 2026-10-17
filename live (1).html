@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f050a">
+<title>लाइव प्रसारण एवं दैनिक लीला | सनातन धर्म संस्था, बस्ती</title>
+<meta name="description" content="श्री रामलीला महोत्सव 2026 का सीधा प्रसारण, पिछले लाइव और दस दिनों की लीला का विवरण।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;700;800&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f050a; --bg2:#1a0a10; --card:#1f0d14; --line:rgba(232,176,74,.22);
+  --gold:#e8b04a; --saffron:#ff9933; --cream:#fbefd9; --muted:#cdb9a0; --red:#e0312b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(1200px 600px at 50% -10%,#3a0f1a 0%,var(--bg) 60%);color:var(--cream);
+  font-family:"Noto Sans Devanagari",system-ui,sans-serif;line-height:1.7;min-height:100vh;
+  padding-bottom:env(safe-area-inset-bottom,0)}
+a{color:inherit;text-decoration:none}
+.serif{font-family:"Noto Serif Devanagari",serif}
+.wrap{max-width:1140px;margin:0 auto;padding:0 18px}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(15,5,10,.86);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Noto Serif Devanagari",serif;font-weight:700;line-height:1.2}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.brand small{display:block;font-family:"Noto Sans Devanagari";font-weight:400;font-size:.75rem;color:var(--muted)}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 12px;border-radius:999px;font-size:.92rem;color:var(--muted)}
+nav a:hover,nav a.on{color:var(--bg);background:var(--gold)}
+nav a.cta{background:linear-gradient(135deg,var(--saffron),var(--gold));color:#2a0d05;font-weight:600}
+
+/* hero */
+.hero{text-align:center;padding:54px 0 26px}
+.eyebrow{color:var(--gold);letter-spacing:.18em;font-size:.85rem}
+.hero h1{font-family:"Noto Serif Devanagari",serif;font-weight:800;font-size:clamp(2rem,5.5vw,3.6rem);
+  line-height:1.25;margin:10px 0 8px;
+  background:linear-gradient(180deg,#fff2cf,var(--gold) 70%,var(--saffron));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);max-width:640px;margin:0 auto}
+.divider{margin:18px auto 0;width:140px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+
+h2.sec{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,3.2vw,2rem);margin:46px 0 6px;color:var(--gold)}
+.sub{color:var(--muted);margin-bottom:18px}
+
+/* live */
+.player{position:relative;aspect-ratio:16/9;background:#000;border-radius:18px;overflow:hidden;
+  border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.55),0 0 0 6px rgba(232,176,74,.06)}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(224,49,43,.15);border:1px solid var(--red);
+  color:#ffb3ae;border-radius:999px;padding:4px 14px;font-weight:600;margin-bottom:14px;font-size:.9rem}
+.badge i{width:9px;height:9px;border-radius:50%;background:var(--red);animation:pulse 1.4s infinite}
+@keyframes pulse{50%{opacity:.25;transform:scale(.7)}}
+.btn{display:inline-block;margin-top:16px;padding:11px 22px;border-radius:10px;font-weight:600;
+  background:linear-gradient(135deg,var(--saffron),var(--gold));color:#2a0d05}
+.btn.ghost{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+
+/* previous */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.vid{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.25s}
+.vid:hover{transform:translateY(-4px);border-color:var(--gold)}
+.thumb{position:relative;aspect-ratio:16/9;background:#000 center/cover no-repeat;cursor:pointer;display:block;width:100%;border:0}
+.thumb::after{content:"▶";position:absolute;inset:0;margin:auto;width:56px;height:56px;border-radius:50%;
+  background:rgba(15,5,10,.75);border:1px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-size:1.2rem}
+.thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid h4{padding:12px 14px;font-weight:600;font-size:.98rem}
+
+/* days */
+.days{display:flex;gap:10px;overflow-x:auto;padding:6px 2px 14px;scroll-snap-type:x proximity}
+.day{flex:0 0 auto;scroll-snap-align:start;min-width:92px;text-align:center;padding:10px 8px;border-radius:14px;cursor:pointer;
+  background:var(--card);border:1px solid var(--line);color:var(--muted);font-family:inherit}
+.day b{display:block;font-family:"Noto Serif Devanagari",serif;font-size:1.5rem;color:var(--cream)}
+.day span{font-size:.75rem}
+.day.on{background:linear-gradient(160deg,#4a1320,#2a0b14);border-color:var(--gold);color:var(--gold)}
+.day.on b{color:var(--gold)}
+.article{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:20px;padding:clamp(20px,4vw,38px)}
+.article .tag{color:var(--saffron);font-size:.85rem;letter-spacing:.12em}
+.article h3{font-family:"Noto Serif Devanagari",serif;font-size:clamp(1.4rem,3.2vw,2.1rem);color:var(--gold);margin:6px 0 14px;line-height:1.35}
+.article p{margin-bottom:14px;color:#f1e2c8}
+.article img{max-width:100%;border-radius:12px;margin:10px 0;border:1px solid var(--line)}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:22px;flex-wrap:wrap}
+.pager button{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:9px 18px;border-radius:10px;cursor:pointer;font:inherit}
+.pager button:disabled{opacity:.3;cursor:default}
+
+.badge.rec{background:rgba(232,176,74,.12);border-color:var(--gold);color:var(--gold)}
+.badge.rec i{background:var(--gold);animation:none}
+.msg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;color:var(--muted);background:radial-gradient(600px 300px at 50% 40%,#2a0b14,#0f050a)}
+.msg b{display:block;color:var(--gold);font-family:"Noto Serif Devanagari",serif;font-size:1.3rem;margin-bottom:6px}
+.day.today::after{content:"आज";display:block;font-size:.65rem;color:var(--saffron)}
+.slider{position:relative}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 14px;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 min(340px,82%);scroll-snap-align:start}
+.arrow{position:absolute;top:38%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;cursor:pointer;
+  background:rgba(15,5,10,.85);border:1px solid var(--gold);color:var(--gold);font-size:1.3rem;display:grid;place-items:center}
+.arrow:hover{background:var(--gold);color:#2a0d05}
+.arrow.l{left:-6px}.arrow.r{right:-6px}
+@media(max-width:640px){.arrow{width:36px;height:36px}}
+footer{margin-top:70px;border-top:1px solid var(--line);padding:30px 0 40px;text-align:center;color:var(--muted)}
+footer .jai{color:var(--gold);font-family:"Noto Serif Devanagari",serif;font-size:1.2rem;margin-bottom:6px}
+@media(max-width:640px){.brand small{display:none}nav a{padding:6px 9px;font-size:.85rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img src="logo.webp" alt="लोगो"><span>सनातन धर्म संस्था<small>बस्ती, उत्तर प्रदेश</small></span></a>
+    <nav>
+      <a href="index.html">मुखपृष्ठ</a>
+      <a href="mahotsav.html">रामलीला महोत्सव</a>
+      <a href="live.html" class="on">लाइव एवं लीला</a>
+      <a href="sahyog.html">सहयोग करें</a>
+      <a href="sahyog.html#payment" class="cta">राम काज में सहभागी बनें</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">॥ जय श्री राम ॥</div>
+    <h1>श्री रामलीला महोत्सव 2026<br>सीधा प्रसारण एवं दैनिक लीला</h1>
+    <p>12 से 21 नवम्बर · सक्सेरिया इंटर कॉलेज, बस्ती · प्रतिदिन सायं 6:30 – रात्रि 10:30</p>
+    <div class="divider"></div>
+  </section>
+
+  <!-- LIVE + DAY -->
+  <section id="live">
+    <span class="badge" id="badge"><i></i> <span id="badgetxt">लाइव प्रसारण</span></span>
+    <div class="player" id="livebox"></div>
+    <a class="btn" id="golive" href="#live">🔴 लाइव देखें</a>
+    <a class="btn ghost" target="_blank" rel="noopener" href="https://www.youtube.com/@sanatandharmsanstha/streams">YouTube पर देखें ↗</a>
+  </section>
+
+  <h2 class="sec" id="days-top">दस संध्याएँ · तारीख़ चुनें</h2>
+  <p class="sub">जिस दिन पर क्लिक करेंगे, उसी दिन का वीडियो और विवरण ऊपर-नीचे खुल जाएगा।</p>
+  <div class="days" id="days"></div>
+  <article class="article" id="article"></article>
+  <div class="pager"><button id="pv">← पिछला दिन</button><button id="nx">अगला दिन →</button></div>
+
+  <h2 class="sec">सभी पिछले लाइव</h2>
+  <div id="prev"></div>
+</main>
+
+<footer>
+  <div class="jai">॥ सर्वे भवन्तु सुखिनः ॥</div>
+  <div>© 2026 सनातन धर्म संस्था, बस्ती · 9936311711 · 8787288651</div>
+</footer>
+
+<script>
+/* ================== केवल यही हिस्सा बदलें ================== */
+
+// 1) YouTube चैनल की ID (UC से शुरू). YouTube Studio > Settings > Channel > Advanced settings
+const CHANNEL_ID = "UCC-PMZzH_oargLyuGdUjAAw";
+
+// पिछले लाइव स्लाइडर (दो तरीक़े, कोई एक चुनें):
+// (A) सीधा: वीडियो का सामान्य लिंक (url) और शीर्षक जोड़ते जाएँ, embed लिंक की ज़रूरत नहीं
+const PREVIOUS_LIVES = [
+  {id:"kpL2gVRiGl4", title:"प्रथम दिवस श्री रामलीला महोत्सव, बस्ती (षष्टम वर्ष)"},
+  {id:"nER70fMlZOA", title:"द्वितीय दिवस श्री रामलीला महोत्सव, बस्ती (षष्टम वर्ष)"},
+  {id:"cVaLj52LhrA", title:"तृतीय दिवस श्री रामलीला महोत्सव, बस्ती (षष्टम वर्ष)"},
+  {id:"Z1UyScC7Om8", title:"चतुर्थ दिवस श्री रामलीला महोत्सव, बस्ती (षष्टम वर्ष)"},
+  {id:"JOfshKAoNec", title:"पंचम दिवस श्री रामलीला महोत्सव, बस्ती (षष्टम वर्ष)"},
+  {id:"jLIjtm09tpU", title:"षष्टम् दिवस श्री रामलीला महोत्सव, बस्ती (षष्टम वर्ष)"},
+  {id:"sRQC436ueFU", title:"सप्तम दिवस श्री रामलीला महोत्सव, बस्ती (षष्टम वर्ष)"},
+  {id:"KT18vv7F6P4", title:"अष्टम दिवस श्री रामलीला महोत्सव, बस्ती (षष्टम वर्ष)"},
+  {id:"FLzvdbfwM-0", title:"नवम दिवस श्री रामलीला महोत्सव, बस्ती (षष्टम वर्ष)"}
+];
+// (B) अपने आप: YouTube Data API key डालें, तो चैनल के सभी हाल के वीडियो खुद स्लाइडर में आ जाएँगे
+const YT_API_KEY = "";
+
+// 2) हर दिन का वीडियो: उस दिन के YouTube लाइव/वीडियो की ID नीचे video:"" में डालें
+//    (पूरा लिंक चिपकाएँ, जैसे "https://www.youtube.com/watch?v=XXXXXXXXXXX"). खाली छोड़ने पर आज के दिन लाइव चलेगा,
+//    और बीते दिन पर "जल्द उपलब्ध" संदेश दिखेगा।
+// 3) हर दिन का लेख body में सामान्य HTML: <p>…</p>, <img src="...">
+const DAYS = [
+  {wd:"गुरुवार", d:12, video:"", heading:"श्री रामलीला – दिन 1", body:""},
+  {wd:"शुक्रवार", d:13, video:"", heading:"श्री रामलीला – दिन 2", body:""},
+  {wd:"शनिवार", d:14, video:"", heading:"श्री रामलीला – दिन 3", body:""},
+  {wd:"रविवार", d:15, video:"", heading:"श्री रामलीला – दिन 4", body:""},
+  {wd:"सोमवार", d:16, video:"", heading:"श्री रामलीला – दिन 5", body:""},
+  {wd:"मंगलवार", d:17, video:"", heading:"श्री रामलीला – दिन 6", body:""},
+  {wd:"बुधवार", d:18, video:"", heading:"श्री रामलीला – दिन 7", body:""},
+  {wd:"गुरुवार", d:19, video:"", heading:"श्री रामलीला – दिन 8", body:""},
+  {wd:"शुक्रवार", d:20, video:"", heading:"श्री रामलीला – दिन 9", body:""},
+  {wd:"शनिवार", d:21, video:"", heading:"श्री रामलीला – दिन 10", body:""}
+];
+/* ================== यहाँ तक ================== */
+
+(function(){
+  var $ = function(id){return document.getElementById(id)};
+  // वीडियो का सामान्य YouTube लिंक (watch / youtu.be / live / embed) या सीधे ID, दोनों चलेंगे
+  function vid(u){
+    if (!u) return "";
+    var m = String(u).match(/(?:v=|youtu\.be\/|\/live\/|\/embed\/|\/shorts\/)([\w-]{11})/);
+    return m ? m[1] : (/^[\w-]{11}$/.test(String(u).trim()) ? String(u).trim() : "");
+  }
+  var bar = $("days"), art = $("article"), box = $("livebox"), cur = 0;
+
+  // आज की तारीख़ (भारतीय समय)
+  var p = {};
+  new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Kolkata",year:"numeric",month:"2-digit",day:"2-digit"})
+    .formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+  var todayIdx = -1;
+  if (p.year==="2026" && p.month==="11") DAYS.forEach(function(x,i){ if (+p.day===x.d) todayIdx=i; });
+
+  function liveFrame(){
+    return '<iframe src="https://www.youtube.com/embed/live_stream?channel='+CHANNEL_ID+'" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen title="लाइव"></iframe>';
+  }
+  function setBadge(live){
+    $("badge").className = "badge" + (live ? "" : " rec");
+    $("badgetxt").textContent = live ? "लाइव प्रसारण" : "रिकॉर्डिंग";
+  }
+  function showPlayer(i){
+    var x = DAYS[i];
+    var vi = vid(x.video);
+    if (vi) {                            // उस दिन का वीडियो/लाइव
+      box.innerHTML = '<iframe src="https://www.youtube.com/embed/'+vi+'" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen title="दिन '+(i+1)+'"></iframe>';
+      setBadge(false);
+    } else if (i === todayIdx) {         // आज का दिन: सीधा लाइव
+      box.innerHTML = liveFrame(); setBadge(true);
+    } else if (todayIdx !== -1 && i > todayIdx || (todayIdx === -1 && new Date() < new Date("2026-11-12T00:00:00+05:30"))) {
+      box.innerHTML = '<div class="msg"><div><b>॥ जय श्री राम ॥</b>दिन '+(i+1)+' की लीला '+x.d+' नवम्बर को सायं 6:30 बजे से<br>यहीं सीधा प्रसारित होगी।</div></div>';
+      setBadge(false);
+    } else {                             // बीता दिन, वीडियो अभी जोड़ा नहीं गया
+      box.innerHTML = '<div class="msg"><div><b>वीडियो जल्द उपलब्ध</b>इस दिन का प्रसारण YouTube चैनल की स्ट्रीम सूची में देख सकते हैं।</div></div>';
+      setBadge(false);
+    }
+  }
+
+  DAYS.forEach(function(x,i){
+    var b = document.createElement("button"); b.className = "day" + (i===todayIdx ? " today" : "");
+    b.innerHTML = '<span>'+x.wd+'</span><b>'+x.d+'</b><span>नवम्बर</span>';
+    b.onclick = function(){ show(i,true); $("live").scrollIntoView({behavior:"smooth",block:"start"}); };
+    bar.appendChild(b);
+  });
+
+  function show(i, push){
+    cur = i;
+    Array.prototype.forEach.call(bar.children, function(b,j){ b.classList.toggle("on", j===i) });
+    var x = DAYS[i];
+    art.innerHTML = '<div class="tag">दिन '+(i+1)+' · '+x.wd+', '+x.d+' नवम्बर 2026</div><h3>'+(x.heading || 'दिन '+(i+1)+' की श्री रामलीला')+'</h3>'+(x.body || '<p style="color:var(--muted)">इस दिन की लीला का विवरण शीघ्र ही यहाँ उपलब्ध होगा। ॥ जय श्री राम ॥</p>');
+    $("pv").disabled = i===0; $("nx").disabled = i===DAYS.length-1;
+    showPlayer(i);
+    bar.children[i].scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});
+    if (push) { try{history.replaceState(null,"","#din"+(i+1));}catch(e){} }
+  }
+  $("pv").onclick = function(){ show(cur-1,true) };
+  $("nx").onclick = function(){ show(cur+1,true) };
+  $("golive").onclick = function(e){ e.preventDefault(); box.innerHTML = liveFrame(); setBadge(true); $("live").scrollIntoView({behavior:"smooth"}); };
+
+  // शुरुआत: लिंक में #dinN हो तो वही दिन, वरना आज का दिन, वरना दिन 1
+  var m = /^#din(\d+)$/.exec(location.hash);
+  show(m && DAYS[+m[1]-1] ? +m[1]-1 : (todayIdx !== -1 ? todayIdx : 0), false);
+
+  // सभी पिछले लाइव: स्लाइडर
+  var prev = $("prev");
+  function fallback(){
+    prev.innerHTML = '<div class="player"><iframe src="https://www.youtube.com/embed/videoseries?list=UU'+CHANNEL_ID.slice(2)+'" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen loading="lazy" title="पिछले लाइव"></iframe></div>';
+  }
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function buildSlider(list){
+    list = list.map(function(v){return {id:vid(v.id||v.url), title:v.title||'श्री रामलीला'}}).filter(function(v){return v.id});
+    if (!list.length) return fallback();
+    prev.innerHTML = '<div class="slider"><button class="arrow l" aria-label="पीछे">‹</button><div class="track" id="track"></div><button class="arrow r" aria-label="आगे">›</button></div>';
+    var tr = $("track"), cards = [], idx = 0, pinned = -1, hover = false, visible = false, timer;
+
+    function thumb(v){ return '<button class="thumb" aria-label="चलाएँ" style="background-image:url(https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg)"></button>'; }
+    function frame(v, muted){
+      return '<div class="thumb"><iframe src="https://www.youtube.com/embed/'+v.id+'?autoplay=1&mute='+(muted?1:0)+'&playsinline=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="'+esc(v.title)+'"></iframe></div>';
+    }
+    function bind(i){
+      var t = cards[i].querySelector("button.thumb");
+      if (t) t.onclick = function(){            // क्लिक: आवाज़ के साथ चलेगा और चलता रहेगा
+        if (pinned > -1 && pinned !== i) reset(pinned);
+        pinned = i; cards[i].querySelector(".thumb").outerHTML = frame(list[i], false);
+      };
+    }
+    function reset(i){
+      var t = cards[i].querySelector(".thumb");
+      if (t) { t.outerHTML = thumb(list[i]); bind(i); }
+      if (pinned === i) pinned = -1;
+    }
+    list.forEach(function(v,i){
+      var c = document.createElement("div"); c.className = "vid slide";
+      c.innerHTML = thumb(v) + '<h4>'+esc(v.title)+'</h4>';
+      tr.appendChild(c); cards.push(c); bind(i);
+    });
+
+    var live = -1;                               // जिस स्लाइड पर चुपचाप प्रीव्यू चल रहा है
+    function activate(i){
+      if (!visible || i === live) return;
+      if (live > -1 && live !== pinned) reset(live);
+      live = i;
+      if (i !== pinned) cards[i].querySelector(".thumb").outerHTML = frame(list[i], true);   // बिना आवाज़ के अपने आप चलता है
+    }
+    function w(){ return cards[0].getBoundingClientRect().width + 16; }
+    function go(i){
+      idx = (i + list.length) % list.length;
+      tr.scrollTo({left: idx * w()});
+      activate(idx);
+    }
+    prev.querySelector(".l").onclick = function(){ go(idx - 1) };
+    prev.querySelector(".r").onclick = function(){ go(idx + 1) };
+    var sd; tr.addEventListener("scroll", function(){           // हाथ से खिसकाने पर
+      clearTimeout(sd); sd = setTimeout(function(){ idx = Math.min(list.length-1, Math.round(tr.scrollLeft / w())); activate(idx); }, 180);
+    }, {passive:true});
+    prev.addEventListener("mouseenter", function(){ hover = true });
+    prev.addEventListener("mouseleave", function(){ hover = false });
+    tr.addEventListener("touchstart", function(){ hover = true }, {passive:true});
+    tr.addEventListener("touchend", function(){ setTimeout(function(){ hover = false }, 4000) }, {passive:true});
+
+    // अपने आप सरकना (हर 7 सेकंड), प्रीव्यू साथ-साथ चलता रहता है
+    timer = setInterval(function(){ if (visible && !hover && !document.hidden) go(idx + 1) }, 7000);
+
+    // स्लाइडर स्क्रीन पर दिखे तभी प्रीव्यू चले (डेटा और आवाज़ की बचत)
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function(en){
+        visible = en[0].isIntersecting;
+        if (visible) activate(idx); else if (live > -1 && live !== pinned) { reset(live); live = -1; }
+      }, {threshold:.4}).observe(prev);
+    } else { visible = true; activate(0); }
+  }
+
+  if (YT_API_KEY) {
+    // अपने आप: चैनल के सभी हाल के वीडियो/लाइव (नई स्ट्रीम अपने आप जुड़ती है)
+    fetch("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=30&playlistId=UU"+CHANNEL_ID.slice(2)+"&key="+YT_API_KEY)
+      .then(function(r){return r.json()})
+      .then(function(d){
+        var l = (d.items||[]).map(function(it){return {id:it.snippet.resourceId.videoId, title:it.snippet.title}});
+        buildSlider(l.length ? l : PREVIOUS_LIVES);
+      }).catch(function(){ buildSlider(PREVIOUS_LIVES) });
+  } else if (PREVIOUS_LIVES.length) {
+    buildSlider(PREVIOUS_LIVES);
+  } else {
+    // बिना key के अपने आप: चैनल का RSS (rss2json के ज़रिए), सबसे हाल के वीडियो
+    fetch("https://api.rss2json.com/v1/api.json?rss_url="+encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id="+CHANNEL_ID))
+      .then(function(r){return r.json()})
+      .then(function(d){
+        var l = (d.items||[]).map(function(it){
+          var m = /[?&]v=([\w-]{11})/.exec(it.link||"");
+          return m ? {id:m[1], title:it.title} : null;
+        }).filter(Boolean);
+        buildSlider(l);
+      }).catch(function(){ buildSlider([]) });
+  }
+})();
+</script>
+</body>
+</html>
