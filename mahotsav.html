@@ -21,13 +21,16 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 /* तिथिवार कार्यक्रम */
-/* दिनांक टेक्स्ट स्पष्ट दिखे — रंग सीधे तय */
-.days .day{background:#fffdf7;border:1px solid #e6d09b;border-radius:16px;color:#5c111f}
-.days .day small{display:block;color:#7a5a2a;font-size:.8rem}
-.days .day b{display:block;color:#7d1828;font-size:1.8rem;font-weight:600;line-height:1.2}
-.days .day span{display:block;color:#7a5a2a;font-size:.85rem}
+/* सभी तिथियाँ ऊपर से नीचे, बिना क्लिक के */
+.sched-all{max-width:var(--maxw);margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.sched-all .day-panel{margin:0;width:100%}
+.sched-all .sp-list{grid-template-columns:1fr}
+.sched-all .day-panel.is-today{border-color:var(--gold-deep);box-shadow:0 0 0 2px var(--gold),0 20px 50px -28px rgba(92,17,31,.45)}
 .day-panel .sp-t h3{color:#7d1828}
 .day-panel .sp-t p{color:#5b4a3a}
+.day-panel .sp-item h4{color:#2b1a14}
+.day-panel .sp-s{color:#5b4a3a}
+.day-panel .sp-n{color:#a3182f}
 .day-panel .sp-d b{color:#f3d98b}.day-panel .sp-d small{color:#e0b84e}
 .day-hint{max-width:var(--maxw);margin:-10px auto 22px;text-align:center;color:var(--text-soft);font-size:.95rem}
 .day{cursor:pointer}.day:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px}
@@ -125,9 +128,7 @@
 
 <section class="section section-paper2">
   <div class="sec-head reveal"><span class="eyebrow dark">दस संध्याएँ</span><h2>कार्यक्रम <em>तिथिवार</em></h2><p>प्रतिदिन सायं 6:30 बजे से रात्रि 10:30 बजे तक।</p></div>
-  <p class="day-hint reveal">किसी भी तिथि पर क्लिक करके उस दिन की लीला और प्रतिभागी विद्यालय देखें</p>
-  <div class="days"><div class="day reveal" style="--d:0" data-date="2026-11-12"><small>गुरुवार</small><b>12</b><span>नवम्बर</span></div><div class="day reveal" style="--d:1" data-date="2026-11-13"><small>शुक्रवार</small><b>13</b><span>नवम्बर</span></div><div class="day reveal" style="--d:2" data-date="2026-11-14"><small>शनिवार</small><b>14</b><span>नवम्बर</span></div><div class="day reveal" style="--d:3" data-date="2026-11-15"><small>रविवार</small><b>15</b><span>नवम्बर</span></div><div class="day reveal" style="--d:4" data-date="2026-11-16"><small>सोमवार</small><b>16</b><span>नवम्बर</span></div><div class="day reveal" style="--d:5" data-date="2026-11-17"><small>मंगलवार</small><b>17</b><span>नवम्बर</span></div><div class="day reveal" style="--d:6" data-date="2026-11-18"><small>बुधवार</small><b>18</b><span>नवम्बर</span></div><div class="day reveal" style="--d:7" data-date="2026-11-19"><small>गुरुवार</small><b>19</b><span>नवम्बर</span></div><div class="day reveal" style="--d:8" data-date="2026-11-20"><small>शुक्रवार</small><b>20</b><span>नवम्बर</span></div><div class="day reveal" style="--d:9" data-date="2026-11-21"><small>शनिवार</small><b>21</b><span>नवम्बर</span></div></div>
-  <div class="day-panel" id="dayp" aria-live="polite"></div>
+  <div id="sched" class="sched-all"></div>
   <div class="days-note reveal"><span><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>प्रतिदिन सायं 6:30 – रात्रि 10:30</span><span><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>सक्सेरिया इंटर कॉलेज, बस्ती</span></div>
 </section>
 
@@ -172,12 +173,15 @@
 <script src="schedule.js"></script>
 <script>
 (function(){
-  var tiles=[].slice.call(document.querySelectorAll('.day[data-date]')),p=document.getElementById('dayp');
-  function pick(t){tiles.forEach(function(x){x.classList.remove('is-sel');x.setAttribute('aria-pressed','false')});t.classList.add('is-sel');t.setAttribute('aria-pressed','true');renderSchedule(+t.getAttribute('data-date').slice(-2),p)}
-  tiles.forEach(function(t){t.setAttribute('role','button');t.setAttribute('tabindex','0');
-    t.addEventListener('click',function(){pick(t)});
-    t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(t)}})});
-  var td=scheduleToday()||12;pick(tiles[td-12]||tiles[0]);
+  var box=document.getElementById('sched'),td=scheduleToday();
+  for(var d=12;d<=21;d++){
+    var el=document.createElement('section');
+    el.className='day-panel'+(td===d?' is-today':'');
+    el.id='din-'+d;
+    box.appendChild(el);
+    renderSchedule(d,el);
+  }
+  if(td){var t=document.getElementById('din-'+td);if(t&&location.hash==='#schedule-today')t.scrollIntoView({behavior:'smooth',block:'start'})}
 })();
 </script>
 </body>
