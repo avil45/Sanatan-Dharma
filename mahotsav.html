@@ -21,6 +21,14 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 /* तिथिवार कार्यक्रम */
+/* दिनांक टेक्स्ट स्पष्ट दिखे — रंग सीधे तय */
+.days .day{background:#fffdf7;border:1px solid #e6d09b;border-radius:16px;color:#5c111f}
+.days .day small{display:block;color:#7a5a2a;font-size:.8rem}
+.days .day b{display:block;color:#7d1828;font-size:1.8rem;font-weight:600;line-height:1.2}
+.days .day span{display:block;color:#7a5a2a;font-size:.85rem}
+.day-panel .sp-t h3{color:#7d1828}
+.day-panel .sp-t p{color:#5b4a3a}
+.day-panel .sp-d b{color:#f3d98b}.day-panel .sp-d small{color:#e0b84e}
 .day-hint{max-width:var(--maxw);margin:-10px auto 22px;text-align:center;color:var(--text-soft);font-size:.95rem}
 .day{cursor:pointer}.day:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px}
 .day.is-sel{border-color:var(--gold-deep);box-shadow:0 0 0 2px var(--gold),0 16px 34px rgba(92,17,31,.18)}
