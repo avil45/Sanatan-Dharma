@@ -227,3 +227,4 @@
     });
   });
 })();
+   document.head.appendChild(Object.assign(document.createElement("script"),{src:"map-link.js"}));
