@@ -55,6 +55,14 @@ html,body{max-width:100%;overflow-x:hidden}
 @keyframes lw{0%,100%{box-shadow:0 0 0 1px rgba(224,169,44,.35),0 0 14px rgba(224,169,44,.10)}50%{box-shadow:0 0 0 1px rgba(224,169,44,.9),0 0 34px rgba(224,169,44,.35)}}
 @media(prefers-reduced-motion:reduce){.vid.is-wait,#lt,.lpp-zoom,.lpp-card,.lpp-dot::before,.lpp-dot::after{animation:none!important}}
 </style><style>
+#pv .vc{position:relative}
+.lvb{position:absolute;top:10px;left:10px;z-index:3;display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:rgba(11,4,7,.82);border:1px solid rgba(224,169,44,.6);color:#f3d98b;font:700 .74rem/1 Hind,sans-serif;letter-spacing:.02em;box-shadow:0 2px 8px rgba(0,0,0,.45);pointer-events:none}
+.tabs button.lv::after{border-radius:50%;display:inline-block}
+.tabs button{position:relative}
+.tabs button.lv::after{content:"";position:absolute;top:5px;right:5px;width:9px;height:9px;background:#ff2a2a;animation:lvp2 1.4s ease-out infinite}
+@keyframes lvp{0%{box-shadow:0 0 0 0 rgba(255,255,255,.8)}70%{box-shadow:0 0 0 7px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+@keyframes lvp2{0%{box-shadow:0 0 0 0 rgba(255,42,42,.85)}70%{box-shadow:0 0 0 8px rgba(255,42,42,0)}100%{box-shadow:0 0 0 0 rgba(255,42,42,0)}}
+@media(prefers-reduced-motion:reduce){.tabs button.lv::after{animation:none!important}}
 .sch{margin-top:14px;padding:16px 18px;border:1px solid rgba(224,169,44,.35);border-radius:14px;background:rgba(224,169,44,.06)}
 .sch h3{margin:0 0 12px;font-size:1.05rem;color:#f3d98b}
 .sch .it{padding:10px 0;border-top:1px dashed rgba(224,169,44,.25)}
@@ -136,7 +144,9 @@ function tick(){
 setInterval(tick,1000);
 DAYS.forEach((x,i)=>{const b=document.createElement("button");b.innerHTML="<b>"+x.d+"</b><br><small>नव.</small>";b.onclick=()=>{[...tb.children].forEach(c=>c.classList.remove("on"));b.classList.add("on");showSch(x.d);if(x.video){manual=true;showPlayer(E+x.video.replace(/.*(v=|youtu.be\/)/,""),false)}else{manual=false;auto()}};tb.appendChild(b)});
 {const t=ist(),dd=(t.getMonth()===10&&t.getDate()>=12&&t.getDate()<=21)?t.getDate():12,i=dd-12;tb.children[i].classList.add("on");showSch(dd)}
-document.getElementById("pv").innerHTML=PREVIOUS.map(v=>`<a class="vc rv in" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt=""><p>${v.title}</p></a>`).join("");
+function pulseTab(){const t=ist(),d=t.getDate();[...tb.children].forEach(c=>c.classList.remove("lv"));if(t.getMonth()===10&&d>=12&&d<=21&&state()==="live")tb.children[d-12].classList.add("lv")}
+pulseTab();setInterval(pulseTab,30000);
+document.getElementById("pv").innerHTML=PREVIOUS.map(v=>`<a class="vc rv in" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt=""><span class="lvb">▶ रिकॉर्डेड</span><p>${v.title}</p></a>`).join("");
 </script><style>
 .navfb{position:fixed;top:0;left:0;right:0;z-index:10000;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px max(14px,env(safe-area-inset-right)) 10px max(14px,env(safe-area-inset-left));padding-top:max(10px,env(safe-area-inset-top));background:rgba(11,4,7,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(224,169,44,.35);font-family:Hind,sans-serif}
 .navfb a{color:#f3d98b;text-decoration:none;font-size:.95rem;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid rgba(224,169,44,.45);white-space:nowrap}
