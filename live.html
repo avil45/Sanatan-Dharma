@@ -163,12 +163,19 @@ const key=()=>{const s=state();return s+"|"+(s==="before"?pstate():"")};
 let last=key();
 const snd=document.getElementById("snd"),shd=document.getElementById("shd");let shT;let premOn=false,premDone=false,sndT;
 function ytCmd(f,a){try{pl.contentWindow.postMessage(JSON.stringify({event:"command",func:f,args:a||[]}),"*")}catch(e){}}
-function premSound(){ytCmd("playVideo");ytCmd("unMute");ytCmd("setVolume",[PREM_VOL])}
-function premGo(){if(premDone||!premOn)return;premDone=true;premSound();snd.hidden=true;clearTimeout(sndT)}
+function setPill(t){snd.textContent=t;snd.hidden=false}
+/* पहले टैप/क्लिक पर: वीडियो चलाओ + आवाज़ धीमी चालू (बिना टैप के आवाज़ खोलने की कोशिश नहीं, वरना Android वीडियो रोक देता है) */
+function premGo(){if(!premOn)return;ytCmd("playVideo");if(!premDone){premDone=true;ytCmd("unMute");ytCmd("setVolume",[PREM_VOL]);snd.hidden=true;clearTimeout(sndT)}}
 ["pointerup","touchend","click","keydown"].forEach(e=>addEventListener(e,premGo,{capture:true,passive:true}));
 snd.onclick=e=>{e.stopPropagation();premGo()};
-pl.addEventListener("load",()=>{if(!premOn||premDone)return;setTimeout(premSound,700);setTimeout(premSound,2500);
- if(!premDone){snd.hidden=false;clearTimeout(sndT);sndT=setTimeout(()=>{snd.hidden=true},9000)}});
+let stT;
+pl.addEventListener("load",()=>{if(!premOn)return;const hs=()=>{try{pl.contentWindow.postMessage(JSON.stringify({event:"listening",id:1,channel:"widget"}),"*")}catch(e){}};hs();setTimeout(hs,800);setTimeout(hs,2500);setTimeout(()=>ytCmd("playVideo"),1200)});
+/* वीडियो रुके तो अपने-आप दोबारा चलाओ; न चले तो "चलाएँ" बटन दिखाओ */
+addEventListener("message",e=>{if(!premOn||!/youtube/.test(e.origin))return;let d=e.data;try{if(typeof d==="string")d=JSON.parse(d)}catch(_){return}
+ let st=null;if(d.event==="onStateChange")st=d.info;else if(d.event==="infoDelivery"&&d.info&&typeof d.info.playerState==="number")st=d.info.playerState;
+ if(st===null)return;clearTimeout(stT);
+ if(st===1){if(!premDone){setPill("🔊 आवाज़ चालू");clearTimeout(sndT);sndT=setTimeout(()=>{if(!premDone)snd.hidden=true},9000)}else snd.hidden=true}
+ else if(st===2||st===-1||st===5||st===0){stT=setTimeout(()=>{if(!premOn)return;ytCmd("playVideo");stT=setTimeout(()=>{if(premOn)setPill("▶ प्रीमियर चलाएँ")},1500)},500)}});
 function auto(){const s=state();last=key();
  if(s==="before"){showPlayer(E+PREMIERE_ID+"?autoplay=1&mute=1&playsinline=1&controls=0&fs=0&disablekb=1&iv_load_policy=3&modestbranding=1&enablejsapi=1&start="+PREMIERE_START+(/^https?:/.test(location.protocol)?"&origin="+encodeURIComponent(location.origin):""),false);premOn=true;premDone=false;vidEl.classList.add("clean");clearTimeout(shT);shT=setTimeout(()=>{if(premOn)shd.hidden=false},2000);lt.textContent="प्रीमियर";lt.style.display="inline-flex";return}
  s==="live"?showPlayer(LIVE_SRC,true):showSoon(s)}
