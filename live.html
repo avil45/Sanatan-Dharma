@@ -107,6 +107,7 @@ const FIRST=new Date("2026-11-12T18:30:00+05:30");
 /* वेब प्रीमियर: महोत्सव शुरू होने (12 नवम्बर) तक प्रथम दिवस की रिकॉर्डेड रामलीला पेज खुलते ही अपने-आप चलती है */
 /* यहाँ प्रीमियर वाले वीडियो का YouTube लिंक या embed कोड/लिंक डालें (कोई भी चलेगा) */
 const PREMIERE_LINK="https://www.youtube.com/watch?v=kpL2gVRiGl4";
+const PREMIERE_START=300; /* वीडियो शुरू होने का सेकंड: 300 = 5 मिनट आगे से */
 const PREMIERE_ID=(PREMIERE_LINK.match(/(?:embed\/|v=|youtu\.be\/|shorts\/|live\/)([\w-]{11})/)||PREMIERE_LINK.match(/^([\w-]{11})$/)||[,""])[1];
 function pstate(){return "play"}
 
@@ -139,7 +140,7 @@ function showPlayer(src,live){vidEl.classList.toggle("is-live",!!live);vidEl.cla
 const key=()=>{const s=state();return s+"|"+(s==="before"?pstate():"")};
 let last=key();
 function auto(){const s=state();last=key();
- if(s==="before"){showPlayer(E+PREMIERE_ID+"?autoplay=1&mute=1&playsinline=1",false);lt.textContent="प्रीमियर";lt.style.display="inline-flex";return}
+ if(s==="before"){showPlayer(E+PREMIERE_ID+"?autoplay=1&mute=1&playsinline=1&start="+PREMIERE_START,false);lt.textContent="प्रीमियर";lt.style.display="inline-flex";return}
  s==="live"?showPlayer(LIVE_SRC,true):showSoon(s)}
 auto();
 function nextMs(){const n=ist();let t=new Date(n.getFullYear(),n.getMonth(),n.getDate(),18,30,0);if(n>=t)t.setDate(t.getDate()+1);
@@ -160,11 +161,14 @@ function pulseTab(){const t=ist(),d=t.getDate();[...tb.children].forEach(c=>c.cl
 pulseTab();setInterval(pulseTab,30000);
 document.getElementById("pv").innerHTML=PREVIOUS.map(v=>`<a class="vc rv in" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt=""><span class="lvb">▶ रिकॉर्डेड</span><p>${v.title}</p></a>`).join("");
 </script><style>
-.navfb{position:fixed;top:0;left:0;right:0;z-index:10000;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px max(14px,env(safe-area-inset-right)) 10px max(14px,env(safe-area-inset-left));padding-top:max(10px,env(safe-area-inset-top));background:rgba(11,4,7,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(224,169,44,.35);font-family:Hind,sans-serif}
-.navfb a{color:#f3d98b;text-decoration:none;font-size:.95rem;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid rgba(224,169,44,.45);white-space:nowrap}
-.navfb a.h{background:#e0a92c;color:#3a0a0a;border-color:#e0a92c}
-.navfb img{width:34px;height:34px;border-radius:50%;object-fit:cover;margin-right:2px}
-.navfb .sp{flex:1}
+.navfb{position:fixed;top:0;left:0;right:0;z-index:10000;display:flex;align-items:center;gap:6px;padding:8px max(16px,env(safe-area-inset-right)) 8px max(16px,env(safe-area-inset-left));padding-top:max(8px,env(safe-area-inset-top));background:linear-gradient(180deg,rgba(20,6,12,.97),rgba(11,4,7,.92));backdrop-filter:blur(10px);border-bottom:1px solid rgba(224,169,44,.35);box-shadow:0 6px 24px rgba(0,0,0,.45);font-family:Hind,sans-serif;box-sizing:border-box}
+.navfb .br{display:flex;align-items:center;gap:10px;color:#f3d98b;text-decoration:none;font-weight:700;font-size:1rem;line-height:1.15;border:0;padding:0;margin-right:auto;min-width:0}
+.navfb .br img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:1px solid rgba(224,169,44,.6);flex:0 0 auto}
+.navfb .br span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.navfb a{color:#f3d98b;text-decoration:none;font-size:.92rem;font-weight:600;padding:7px 13px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.navfb a:hover,.navfb a.on{border-color:rgba(224,169,44,.55);background:rgba(224,169,44,.1)}
+body.fbnav .ph{padding-top:28px!important}
+@media(max-width:560px){.navfb .br span{display:none}.navfb a{padding:7px 10px;font-size:.86rem}}
 </style>
 <script>
 /* हैडर/मेन्यू न दिखे तो अपने-आप पीछे जाने वाला बटन-बार जुड़ जाता है */
@@ -172,9 +176,9 @@ window.addEventListener("load",function(){setTimeout(function(){
   var h=document.getElementById("hdr");
   if(h&&h.offsetHeight>20&&h.querySelector("a"))return;
   var n=document.createElement("nav");n.className="navfb";n.setAttribute("aria-label","मुख्य मेन्यू");
-  n.innerHTML='<a class="h" href="index.html">← मुखपृष्ठ</a><span class="sp"></span><a href="mahotsav.html">महोत्सव</a><a href="sahyog.html">सहयोग</a>';
+  n.innerHTML='<a class="br" href="index.html"><img src="logo.webp" alt="" onerror="this.remove()"><span>सनातन धर्म संस्थान, बस्ती</span></a><a href="index.html">मुखपृष्ठ</a><a href="mahotsav.html">महोत्सव</a><a class="on" href="live.html">लाइव</a><a href="sahyog.html">सहयोग</a>';
   document.body.insertBefore(n,document.body.firstChild);
-  document.body.style.paddingTop=(n.offsetHeight+6)+"px";
+  document.body.classList.add("fbnav");document.body.style.paddingTop=n.offsetHeight+"px";
 },700)});
 </script>
 </body></html>
