@@ -55,6 +55,9 @@ html,body{max-width:100%;overflow-x:hidden}
 @keyframes lw{0%,100%{box-shadow:0 0 0 1px rgba(224,169,44,.35),0 0 14px rgba(224,169,44,.10)}50%{box-shadow:0 0 0 1px rgba(224,169,44,.9),0 0 34px rgba(224,169,44,.35)}}
 @media(prefers-reduced-motion:reduce){.vid.is-wait,#lt,.lpp-zoom,.lpp-card,.lpp-dot::before,.lpp-dot::after{animation:none!important}}
 </style><style>
+.soon h3,.soon .eyebrow,.cdn b{color:var(--gold,#e0a92c)!important}
+.soon p,.cdn .cl,.cdn small{color:var(--mut,#e8dccb)!important}
+.cdn .cb div{border:1px solid var(--line,rgba(224,169,44,.4));background:var(--card,rgba(255,255,255,.06))}
 #pv .vc{position:relative}
 .lvb{position:absolute;top:10px;left:10px;z-index:3;display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:rgba(11,4,7,.82);border:1px solid rgba(224,169,44,.6);color:#f3d98b;font:700 .74rem/1 Hind,sans-serif;letter-spacing:.02em;box-shadow:0 2px 8px rgba(0,0,0,.45);pointer-events:none}
 .tabs button.lv::after{border-radius:50%;display:inline-block}
@@ -101,6 +104,12 @@ const E="https://www.youtube.com/embed/",pl=document.getElementById("pl"),tb=doc
 const FORCE_LIVE=false;
 const LIVE_SRC=E+"live_stream?channel="+CHANNEL_ID;
 const FIRST=new Date("2026-11-12T18:30:00+05:30");
+/* वेब प्रीमियर: महोत्सव शुरू होने (12 नवम्बर) तक प्रथम दिवस की रिकॉर्डेड रामलीला पेज खुलते ही अपने-आप चलती है */
+/* यहाँ प्रीमियर वाले वीडियो का YouTube लिंक या embed कोड/लिंक डालें (कोई भी चलेगा) */
+const PREMIERE_LINK="https://www.youtube.com/watch?v=kpL2gVRiGl4";
+const PREMIERE_ID=(PREMIERE_LINK.match(/(?:embed\/|v=|youtu\.be\/|shorts\/|live\/)([\w-]{11})/)||PREMIERE_LINK.match(/^([\w-]{11})$/)||[,""])[1];
+function pstate(){return "play"}
+
 
 /* लाइव पॉपअप: लाइव होते ही ज़ूम होकर दिखता है, बंद करने पर इस सत्र में दोबारा नहीं आता */
 const lpp=document.getElementById("lpp");let lppT;
@@ -127,19 +136,22 @@ function showSoon(s){
  tick();
 }
 function showPlayer(src,live){vidEl.classList.toggle("is-live",!!live);vidEl.classList.remove("is-wait");lt.textContent="लाइव प्रसारण";if(live)lppShow("live");else lppHide(false);soon.style.display="none";pl.style.display="block";pl.src=src+(src.includes("?")?"&":"?")+"rel=0";lt.style.display=live?"inline-flex":"none"}
-let last=state();
-function auto(){const s=state();last=s;s==="live"?showPlayer(LIVE_SRC,true):showSoon(s)}
+const key=()=>{const s=state();return s+"|"+(s==="before"?pstate():"")};
+let last=key();
+function auto(){const s=state();last=key();
+ if(s==="before"){showPlayer(E+PREMIERE_ID+"?autoplay=1&mute=1&playsinline=1",false);lt.textContent="प्रीमियर";lt.style.display="inline-flex";return}
+ s==="live"?showPlayer(LIVE_SRC,true):showSoon(s)}
 auto();
 function nextMs(){const n=ist();let t=new Date(n.getFullYear(),n.getMonth(),n.getDate(),18,30,0);if(n>=t)t.setDate(t.getDate()+1);
  const a=new Date(2026,10,12,18,30),z=new Date(2026,10,21,18,30);if(t<a)t=a;if(t>z)return null;return t-n}
 function tick(){
  const s=state();
- if(!manual&&s!==last){auto();return}
+ if(!manual&&key()!==last){auto();return}
  const c=document.getElementById("cdn");
  if(soon.style.display==="none"||s==="live"||s==="after"){c.innerHTML="";return}
- const d=nextMs();if(d==null){c.innerHTML="";return}
+ const pre=false,d=nextMs();if(d==null){c.innerHTML="";return}
  const D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4),S=Math.floor(d%6e4/1e3);
- c.innerHTML='<div class="cl">प्रसारण प्रारम्भ होने में शेष</div><div class="cb">'+[[D,"दिन"],[H,"घंटे"],[M,"मिनट"],[S,"सेकंड"]].map(([v,l])=>"<div><b>"+String(v).padStart(2,"0")+"</b><small>"+l+"</small></div>").join("")+"</div>";
+ c.innerHTML='<div class="cl">'+(pre?"प्रीमियर":"प्रसारण")+' प्रारम्भ होने में शेष</div><div class="cb">'+[[D,"दिन"],[H,"घंटे"],[M,"मिनट"],[S,"सेकंड"]].map(([v,l])=>"<div><b>"+String(v).padStart(2,"0")+"</b><small>"+l+"</small></div>").join("")+"</div>";
 }
 setInterval(tick,1000);
 DAYS.forEach((x,i)=>{const b=document.createElement("button");b.innerHTML="<b>"+x.d+"</b><br><small>नव.</small>";b.onclick=()=>{[...tb.children].forEach(c=>c.classList.remove("on"));b.classList.add("on");showSch(x.d);if(x.video){manual=true;showPlayer(E+x.video.replace(/.*(v=|youtu.be\/)/,""),false)}else{manual=false;auto()}};tb.appendChild(b)});
