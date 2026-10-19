@@ -213,7 +213,7 @@ window.addEventListener("load",function(){setTimeout(function(){
   var h=document.getElementById("hdr");
   if(h&&h.offsetHeight>20&&h.querySelector("a"))return;
   var n=document.createElement("nav");n.className="navfb";n.setAttribute("aria-label","मुख्य मेन्यू");
-  n.innerHTML='<a class="br" href="index.html"><img src="logo.webp" alt="" onerror="this.remove()"><span>सनातन धर्म संस्थान, बस्ती</span></a><a href="index.html">मुखपृष्ठ</a><a href="mahotsav.html">महोत्सव</a><a class="on" href="live.html">लाइव</a><a href="sahyog.html">सहयोग</a>';
+  n.innerHTML='<a class="br" href="index.html"><img src="logo.webp" alt="" onerror="this.remove()"><span>सनातन धर्म संस्थान, बस्ती</span></a><a href="index.html">मुखपृष्ठ</a><a href="mahotsav.html">महोत्सव</a><a class="on" href="live.html">लाइव</a><a href="sadasya.html">सदस्यगण</a><a href="sahyog.html">सहयोग</a>';
   document.body.insertBefore(n,document.body.firstChild);
   document.body.classList.add("fbnav");document.body.style.paddingTop=n.offsetHeight+"px";
 },700)});
