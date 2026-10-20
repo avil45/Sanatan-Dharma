@@ -95,12 +95,15 @@ html,body{max-width:100%}body{overflow-x:clip}
 .sch .sc{margin-top:2px;font-weight:700;color:#e0a92c;font-size:1.02rem}
 </style>
 <script>document.documentElement.classList.add('js')</script><style>
-/* ===== MOBILE MENU FIX: header + open menu always above page content, opaque ===== */
-.site-header{z-index:1000}
-main{position:relative;z-index:1}
-.menu-toggle{position:relative;z-index:1002}
-.menu-toggle[aria-expanded="true"]+.nav,.nav.open,.nav.is-open,.nav.show,.nav.active-menu,body.menu-open .nav,body.nav-open .nav{background:#0b0407;background-image:linear-gradient(180deg,#3a0f1c 0,#0b0407 220px);z-index:1001;overflow-y:auto}
-.lpp{z-index:900}
+/* ===== MOBILE MENU FIX (same look as index.html menu) ===== */
+.site-header{z-index:2000}
+.menu-toggle{position:relative;z-index:2002}
+html.mnav-open,html.mnav-open body{overflow:hidden}
+html.mnav-open .site-header .nav{
+  background:radial-gradient(70% 50% at 50% 38%,#520c22 0,#1a0610 62%,#0b0407 100%)!important;
+  z-index:2001!important;overflow-y:auto}
+/* page content is hidden while the menu is open, so nothing can show through */
+html.mnav-open main,html.mnav-open .footer,html.mnav-open .dock,html.mnav-open .lpp{visibility:hidden!important}
 </style></head><body data-p="live.html">
 <div class="preloader" aria-hidden="true"><div class="preloader-inner"><div class="preloader-om">ॐ</div><small>॥ जय श्री राम ॥</small></div></div>
 <div class="progress" aria-hidden="true"><i></i></div>
@@ -255,5 +258,16 @@ DAYS.forEach((x,i)=>{const b=document.createElement("button");b.innerHTML="<b>"+
 function pulseTab(){const t=ist(),d=t.getDate();[...tb.children].forEach(c=>c.classList.remove("lv"));if(t.getMonth()===10&&d>=12&&d<=21&&state()==="live")tb.children[d-12].classList.add("lv")}
 pulseTab();setInterval(pulseTab,30000);
 document.getElementById("pv").innerHTML=PREVIOUS.map(v=>`<a class="vc rv in" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt=""><span class="lvb">▶ रिकॉर्डेड</span><p>${v.title}</p></a>`).join("");
+</script>
+<script>
+/* menu open state -> html.mnav-open (works whatever class main.js uses) */
+(function(){var h=document.documentElement,t=document.querySelector(".menu-toggle"),n=document.querySelector(".site-header .nav");if(!t||!n)return;
+function chk(){var cs=getComputedStyle(n),r=n.getBoundingClientRect(),tv=t.offsetParent!==null||getComputedStyle(t).display!=="none";
+var geo=tv&&cs.position==="fixed"&&cs.visibility!=="hidden"&&+cs.opacity>.05&&r.width>0&&r.height>innerHeight*.5&&r.bottom>0&&r.right>0&&r.left<innerWidth&&r.top<innerHeight;
+var o=tv&&(t.getAttribute("aria-expanded")==="true"||geo);h.classList.toggle("mnav-open",!!o)}
+function later(){chk();setTimeout(chk,60);setTimeout(chk,400)}
+t.addEventListener("click",later);n.addEventListener("click",later);addEventListener("resize",chk);
+var mo=new MutationObserver(chk);[t,n,n.parentNode,document.body].forEach(function(e){mo.observe(e,{attributes:true})});
+chk()})();
 </script>
 </body></html>
