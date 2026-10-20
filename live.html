@@ -96,7 +96,7 @@ html,body{max-width:100%}body{overflow-x:clip}
 </style>
 <script>document.documentElement.classList.add('js')</script><style>
 /* ===== HEADER + MOBILE MENU (self-contained) ===== */
-.mh{position:sticky;top:0;z-index:3002;display:flex;align-items:center;justify-content:space-between;gap:12px;height:68px;padding:0 max(14px,env(safe-area-inset-right)) 0 max(14px,env(safe-area-inset-left));background:rgba(11,4,7,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(224,169,44,.18)}
+.mh{position:sticky!important;top:0;display:flex!important;z-index:2147482000;display:flex;align-items:center;justify-content:space-between;gap:12px;height:68px;padding:0 max(14px,env(safe-area-inset-right)) 0 max(14px,env(safe-area-inset-left));background:rgba(11,4,7,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(224,169,44,.18)}
 .mh.open{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;border-color:transparent}
 .mh-brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
 .mh-brand img{width:46px;height:46px;border-radius:50%;flex:none;box-shadow:0 0 14px rgba(224,169,44,.35)}
@@ -109,44 +109,51 @@ html,body{max-width:100%}body{overflow-x:clip}
 .mh-d a.on{box-shadow:inset 0 -2px 0 #e0a92c;border-radius:0}
 .mh-d a.cta,.mh-ov a.cta,.mdock a.main{background:linear-gradient(135deg,#b8801a,#f3d98b 55%,#c48a1e);color:#2a0a0a;font-weight:700;border-radius:999px}
 .mh-d a.cta{padding:9px 18px;box-shadow:none}
-.mh-tg{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid rgba(224,169,44,.4);background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;padding:0;position:relative;z-index:3003}
+.mh-tg{display:flex!important;flex:none;width:42px;height:42px;border-radius:50%;border:1px solid rgba(224,169,44,.4);background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;padding:0;position:relative;z-index:2147482001}
 .mh-tg i{display:block;width:18px;height:2px;border-radius:2px;background:#f3d98b;transition:transform .3s,opacity .2s}
 .mh-tg[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .mh-tg[aria-expanded="true"] i:nth-child(2){opacity:0}
 .mh-tg[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-.mh-ov{position:fixed;inset:0;z-index:3001;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:90px 20px 40px;background:radial-gradient(70% 50% at 50% 40%,#520c22 0,#1a0610 62%,#0b0407 100%);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;overflow-y:auto}
-.mh-ov.open{opacity:1;visibility:visible}
+dialog.mh-ov{position:fixed!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;margin:0!important;border:0!important;padding:90px 20px 40px!important;box-sizing:border-box;z-index:2147483000;display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:radial-gradient(70% 50% at 50% 40%,#520c22 0,#1a0610 62%,#0b0407 100%)!important;color:#f1dcc0;overflow-y:auto}
+dialog.mh-ov[open]{display:flex!important;animation:mhf .3s ease both}
+dialog.mh-ov::backdrop{background:#0b0407}
+@keyframes mhf{from{opacity:0}to{opacity:1}}
 .mh-ov a{color:#f1dcc0;text-decoration:none;font:400 clamp(1.7rem,7.5vw,2.2rem) "Rozha One",serif;padding:14px 10px;text-align:center}
-.mh-ov a.on{color:#f3d98b;position:relative}
+.mh-ov a.on{color:#f3d98b}
 .mh-ov a.on::after{content:"";display:block;width:78px;height:2px;background:#e0a92c;margin:10px auto 0}
 .mh-ov a.cta{font:700 1.05rem Hind,sans-serif;padding:16px 32px;margin-top:26px;box-shadow:0 8px 28px rgba(224,169,44,.3)}
+.mh-ov a.mh-ob{position:absolute;top:11px;left:max(14px,env(safe-area-inset-left));padding:0;margin:0}
+.mh-ov a.mh-ob img{width:46px;height:46px;border-radius:50%;display:block;box-shadow:0 0 14px rgba(224,169,44,.35)}
+.mh-x{position:absolute;top:13px;right:max(14px,env(safe-area-inset-right));width:42px;height:42px;border-radius:50%;border:1px solid rgba(224,169,44,.4);background:transparent;padding:0;cursor:pointer}
+.mh-x i{position:absolute;left:12px;top:20px;width:18px;height:2px;border-radius:2px;background:#f3d98b}
+.mh-x i:nth-child(1){transform:rotate(45deg)}.mh-x i:nth-child(2){transform:rotate(-45deg)}
 html.mh-lock,html.mh-lock body{overflow:hidden}
 /* bottom quick bar (mobile) */
-.mdock{position:fixed;z-index:800;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:4px;padding:8px;border-radius:999px;background:rgba(20,8,12,.94);border:1px solid rgba(224,169,44,.35);box-shadow:0 10px 30px rgba(0,0,0,.55)}
+.mdock{position:fixed;z-index:2147481000;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:4px;padding:8px;border-radius:999px;background:rgba(20,8,12,.94);border:1px solid rgba(224,169,44,.35);box-shadow:0 10px 30px rgba(0,0,0,.55)}
 .mdock a{display:flex;align-items:center;justify-content:center;gap:7px;padding:11px 14px;color:#f1dcc0;text-decoration:none;font:600 .9rem Hind,sans-serif;white-space:nowrap}
 .mdock svg{width:20px;height:20px;flex:none}
 .mdock a.main{flex:1.2;padding:12px 16px}
 .footer{padding-bottom:96px}
 .lpp{z-index:900;bottom:calc(86px + env(safe-area-inset-bottom))}
 @media(max-width:380px){.mh-brand b{font-size:.98rem}.mdock a{padding:10px 8px;font-size:.82rem}}
-@media(min-width:900px){.mh-d{display:flex}.mh-tg,.mh-ov,.mdock{display:none!important}.footer{padding-bottom:0}.lpp{bottom:max(16px,env(safe-area-inset-bottom))}}
+@media(min-width:900px){.mh-d{display:flex}.mh-tg,dialog.mh-ov,.mdock{display:none!important}.footer{padding-bottom:0}.lpp{bottom:max(16px,env(safe-area-inset-bottom))}}
 </style></head><body data-p="live.html">
-<header class="mh" id="mh">
+<div class="mh" id="mh" role="banner">
   <a class="mh-brand" href="index.html" aria-label="सनातन धर्म संस्था, बस्ती — मुखपृष्ठ"><img src="logo.webp" alt="" width="46" height="46"><span><b>सनातन धर्म संस्था</b><small>बस्ती, उत्तर प्रदेश</small></span></a>
-  <nav class="mh-d" aria-label="मुख्य मेन्यू"><a href="index.html">मुखपृष्ठ</a>
+  <div class="mh-d" role="navigation" aria-label="मुख्य मेन्यू"><a href="index.html">मुखपृष्ठ</a>
 <a href="mahotsav.html">रामलीला महोत्सव</a>
 <a href="live.html" class="on" aria-current="page">लाइव एवं लीला</a>
 <a href="sadasya.html">सदस्यगण</a>
 <a href="sahyog.html">सहयोग करें</a>
-<a class="cta" href="sahyog.html#payment">राम काज में सहभागी बनें</a></nav>
+<a class="cta" href="sahyog.html#payment">राम काज में सहभागी बनें</a></div>
   <button class="mh-tg" id="mhT" type="button" aria-label="मेन्यू खोलें" aria-expanded="false" aria-controls="mhO"><i></i><i></i><i></i></button>
-</header>
-<div class="mh-ov" id="mhO" aria-hidden="true"><a tabindex="-1" href="index.html">मुखपृष्ठ</a>
-<a tabindex="-1" href="mahotsav.html">रामलीला महोत्सव</a>
-<a tabindex="-1" href="live.html" class="on" aria-current="page">लाइव एवं लीला</a>
-<a tabindex="-1" href="sadasya.html">सदस्यगण</a>
-<a tabindex="-1" href="sahyog.html">सहयोग करें</a>
-<a tabindex="-1" class="cta" href="sahyog.html#payment">राम काज में सहभागी बनें</a></div>
+</div>
+<dialog class="mh-ov" id="mhO" aria-label="मुख्य मेन्यू"><a class="mh-ob" href="index.html" aria-label="मुखपृष्ठ"><img src="logo.webp" alt="" width="46" height="46"></a><button class="mh-x" id="mhX" type="button" aria-label="मेन्यू बंद करें"><i></i><i></i></button><a href="index.html">मुखपृष्ठ</a>
+<a href="mahotsav.html">रामलीला महोत्सव</a>
+<a href="live.html" class="on" aria-current="page">लाइव एवं लीला</a>
+<a href="sadasya.html">सदस्यगण</a>
+<a href="sahyog.html">सहयोग करें</a>
+<a class="cta" href="sahyog.html#payment">राम काज में सहभागी बनें</a></dialog>
 
 <main id="main">
 <div class="ph"><div class="wrap"><div class="crumb"><a href="index.html">मुखपृष्ठ</a> › लाइव एवं लीला</div><h1 class="gold">सीधा प्रसारण</h1><p class="sub">12 से 21 नवम्बर · प्रतिदिन सायं 6:00 – रात्रि 10:00 · श्री रामलीला महोत्सव 2026</p></div></div>
@@ -178,7 +185,7 @@ html.mh-lock,html.mh-lock body{overflow:hidden}
   </div>
   <div class="footer-bottom"><span>© 2026 सनातन धर्म संस्था, बस्ती</span><span>॥ सर्वे भवन्तु सुखिनः ॥</span></div>
 </footer>
-<nav class="mdock" aria-label="त्वरित कार्य"><a href="tel:9936311711"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span>कॉल करें</span></a><a href="#" id="mdShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2.500"/><circle cx="18" cy="6" r="2.500"/><circle cx="18" cy="18" r="2.500"/><path d="M8.200 11l7.600-4M8.200 13l7.600 4"/></svg><span>साझा करें</span></a><a class="main" href="sahyog.html#payment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c-5-3.500-8-6.500-8-10a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 3.500-3 6.500-8 10z"/></svg><span>सहयोग करें</span></a></nav>
+<div class="mdock" role="navigation" aria-label="त्वरित कार्य"><a href="tel:9936311711"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span>कॉल करें</span></a><a href="#" id="mdShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2.500"/><circle cx="18" cy="6" r="2.500"/><circle cx="18" cy="18" r="2.500"/><path d="M8.200 11l7.600-4M8.200 13l7.600 4"/></svg><span>साझा करें</span></a><a class="main" href="sahyog.html#payment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c-5-3.500-8-6.500-8-10a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 3.500-3 6.500-8 10z"/></svg><span>सहयोग करें</span></a></div>
 <script src="main.js"></script><script>
 /* केवल यही हिस्सा बदलें */
 const CHANNEL_ID="UCC-PMZzH_oargLyuGdUjAAw";
@@ -259,12 +266,14 @@ setInterval(tick,1000);
 document.getElementById("pv").innerHTML=PREVIOUS.map(v=>`<a class="vc rv in" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt=""><span class="lvb">▶ रिकॉर्डेड</span><p>${v.title}</p></a>`).join("");
 </script>
 <script>
-(function(){var h=document.documentElement,H=document.getElementById("mh"),T=document.getElementById("mhT"),O=document.getElementById("mhO");
-function set(o){H.classList.toggle("open",o);O.classList.toggle("open",o);h.classList.toggle("mh-lock",o);T.setAttribute("aria-expanded",o);T.setAttribute("aria-label",o?"मेन्यू बंद करें":"मेन्यू खोलें");O.setAttribute("aria-hidden",!o);O.querySelectorAll("a").forEach(function(a){a.tabIndex=o?0:-1})}
-T.addEventListener("click",function(){set(!O.classList.contains("open"))});
-O.addEventListener("click",function(e){if(e.target.closest("a"))set(false)});
-addEventListener("keydown",function(e){if(e.key==="Escape")set(false)});
-addEventListener("resize",function(){if(innerWidth>=900)set(false)});
+(function(){var h=document.documentElement,T=document.getElementById("mhT"),O=document.getElementById("mhO"),X=document.getElementById("mhX");
+function open(){if(O.open)return;try{O.showModal()}catch(e){O.setAttribute("open","")}h.classList.add("mh-lock");T.setAttribute("aria-expanded","true")}
+function shut(){try{if(O.open)O.close()}catch(e){}O.removeAttribute("open");h.classList.remove("mh-lock");T.setAttribute("aria-expanded","false")}
+T.addEventListener("click",open);X.addEventListener("click",shut);
+O.addEventListener("close",shut);O.addEventListener("cancel",function(){h.classList.remove("mh-lock");T.setAttribute("aria-expanded","false")});
+O.addEventListener("click",function(e){if(e.target.closest("a"))shut()});
+addEventListener("keydown",function(e){if(e.key==="Escape")shut()});
+addEventListener("resize",function(){if(innerWidth>=900)shut()});
 var sh=document.getElementById("mdShare");if(sh)sh.addEventListener("click",function(e){e.preventDefault();var d={title:document.title,url:"https://"+location.host+"/"};if(navigator.share){navigator.share(d).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){alert("लिंक कॉपी हो गया")})}});
 })();
 </script>
