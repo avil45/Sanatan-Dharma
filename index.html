@@ -20,6 +20,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
+.hero-presenter{display:block;margin:14px auto 6px;max-width:34ch;font-family:'Tiro Devanagari Hindi','Hind',serif;font-weight:600;font-size:clamp(1.05rem,3.6vw,1.45rem);line-height:1.5;color:#f3d48a;text-shadow:0 1px 14px rgba(0,0,0,.45);text-wrap:balance}
+.hero-presenter b{font-family:'Rozha One','Hind',serif;font-weight:400;color:#ffe3a0;font-size:1.12em}
+.hero-presenter::after{content:"";display:block;width:64px;height:2px;margin:10px auto 0;background:linear-gradient(90deg,transparent,#e2b45c,transparent)}
+@media(min-width:900px){.hero-presenter{margin-left:0;margin-right:0;text-align:left}.hero-presenter::after{margin-left:0;background:linear-gradient(90deg,#e2b45c,transparent)}}
 /* Circular poster: shown as-is, fully responsive */
 .hero-art{max-width:100%;overflow:visible}
 .hero-art .orb{position:relative;z-index:2;width:min(100%,500px);aspect-ratio:1/1;margin:0 auto;padding:0;border:0;background:none;box-shadow:none;filter:none;clip-path:none;border-radius:0;overflow:visible}
@@ -62,6 +66,7 @@
   <div class="hero-grid">
     <div class="hero-text">
       <span class="eyebrow reveal fade">भक्ति • संस्कार • राष्ट्रभाव</span>
+      <p class="hero-presenter reveal" style="--d:1"><b>20</b> विद्यालयों के <b>600</b> से अधिक बच्चों द्वारा प्रस्तुत होने वाली</p>
       <h1 class="reveal" style="--d:1"><span class="gold-text">श्री रामलीला</span><span class="l2">महोत्सव — बस्ती</span></h1>
       <p class="hero-mantra reveal" style="--d:2">॥ जय श्री राम ॥</p>
       <p class="hero-copy reveal" style="--d:3">मर्यादा पुरुषोत्तम प्रभु श्रीराम के आदर्शों से प्रेरित, नई पीढ़ी में संस्कार, सेवा, साहस और राष्ट्रप्रेम जगाने का एक पावन प्रयास।</p>
