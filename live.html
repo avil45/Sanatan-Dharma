@@ -151,7 +151,7 @@ html.mh-lock,html.mh-lock body{overflow:hidden}
 <main id="main">
 <div class="ph"><div class="wrap"><div class="crumb"><a href="index.html">मुखपृष्ठ</a> › लाइव एवं लीला</div><h1 class="gold">सीधा प्रसारण</h1><p class="sub">12 से 21 नवम्बर · प्रतिदिन सायं 6:00 – रात्रि 10:00 · श्री रामलीला महोत्सव 2026</p></div></div>
 <section style="padding-top:10px"><div class="wrap"><div class="live" style="margin-bottom:14px" id="lt">लाइव प्रसारण</div><div class="vid"><div class="soon" id="soon"><div class="eyebrow">॥ जय श्री राम ॥</div><h3 class="gold" id="st">प्रसारण शीघ्र प्रारम्भ होगा</h3><p id="sm"></p><div class="cdn" id="cdn"></div></div><iframe id="pl" style="display:none" allow="accelerometer;autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen title="वीडियो"></iframe><div id="shd" class="shd" hidden></div><button id="snd" class="snd" type="button" hidden>🔊 आवाज़ चालू</button></div><div class="acts" style="margin:20px 0;display:flex;gap:12px;flex-wrap:wrap"><a class="btn p" target="_blank" href="https://www.youtube.com/@sanatandharmsanstha/streams">YouTube पर देखें ↗</a><a class="btn" target="_blank" href="https://www.youtube.com/@sanatandharmsanstha?sub_confirmation=1">सब्सक्राइब करें</a></div>
-<div id="sch" class="sch" style="margin-top:40px" aria-live="polite"></div></div></section>
+</div></section>
 <section style="padding-top:0"><div class="wrap"><div class="c"><div class="eyebrow">संग्रह</div><h2 class="sec-h">सभी <span class="gold">पिछले लाइव</span></h2></div><div class="grid g3" id="pv"></div></div></section><div class="lpp" id="lpp" role="dialog" aria-live="polite" aria-label="लाइव प्रसारण" hidden><div class="lpp-zoom"><div class="lpp-card"><span class="lpp-dot" aria-hidden="true"></span><div class="lpp-t"><b id="lppB">श्री रामलीला लाइव शुरू हो गई!</b><small id="lppS">सीधा प्रसारण अभी चल रहा है</small></div><button class="lpp-go" id="lppGo" type="button">देखें</button><button class="lpp-x" id="lppX" type="button" aria-label="बंद करें">×</button></div></div></div>
 </main>
 
@@ -184,22 +184,6 @@ html.mh-lock,html.mh-lock body{overflow:hidden}
 const CHANNEL_ID="UCC-PMZzH_oargLyuGdUjAAw";
 const PREVIOUS=[["kpL2gVRiGl4","प्रथम"],["nER70fMlZOA","द्वितीय"],["cVaLj52LhrA","तृतीय"],["Z1UyScC7Om8","चतुर्थ"],["JOfshKAoNec","पंचम"],["jLIjtm09tpU","षष्टम्"],["sRQC436ueFU","सप्तम"],["KT18vv7F6P4","अष्टम"],["FLzvdbfwM-0","नवम"]].map(([id,n])=>({id,title:n+" दिवस श्री रामलीला महोत्सव, बस्ती (षष्टम वर्ष)"}));
 /* हर दिन का वीडियो: video:"" में YouTube वीडियो की ID डालें */
-/* हर दिन के प्रसंग व विद्यालय — यहीं बदलें */
-const SCH={
-12:[["नारद मोह","दिल्ली स्कूल ऑफ एक्सीलेंस, बस्ती"],["पृथ्वी की पुकार, पुत्रेष्टि यज्ञ एवं श्री राम जी का जन्म","डॉन वास्को स्कूल, बस्ती"]],
-13:[["मुनि आगमन एवं ताड़का वध","ओमनी इंटरनेशनल स्कूल, बस्ती"],["नगर दर्शन एवं फुलवारी","सेंट फ्रांसिस स्कूल, बस्ती"]],
-14:[["धनुषयज्ञ महामहोत्सव","गन्ना विकास इंटर कॉलेज, संत कबीर नगर"],["परशुराम-लक्ष्मण संवाद, श्री राम विवाह, कलेवा एवं विदाई","यूनिक साइंस एकेडमी, बस्ती"]],
-15:[["कैकेयी-दशरथ संवाद एवं श्री राम वन गमन","उर्मिला एजुकेशनल एकेडमी, बस्ती"],["निषादराज से भेंट, केवट प्रसंग एवं पर्णकुटी निवास","सरस्वती बालिका विद्या मन्दिर, बस्ती"]],
-16:[["दशरथ जी का मरण एवं भरत मिलाप","एसडीएस पब्लिक स्कूल, महादेवा, बस्ती"],["जयंत कथा से भगवान के प्रण तक का प्रसंग","महेश प्रताप इंटर कॉलेज, रुधौली, बस्ती"],["सुतीक्ष्ण जी से भेंट एवं पंचवटी निवास","एस. पी. चिल्ड्रेन एकेडमी, बस्ती"]],
-17:[["शूर्पणखा नासिका भंग एवं सीताहरण","सेंट जोसेफ स्कूल, बस्ती"],["शबरी उद्धार एवं श्री राम-सुग्रीव मित्रता","ब्लूमिंग बड्स हायर सेकेंडरी स्कूल, बस्ती"]],
-18:[["सीता जी की खोज","फिनिक्स पब्लिक स्कूल, बस्ती"],["लंका दहन एवं हनुमान जी की वापसी","श्री राम पब्लिक स्कूल, बस्ती"]],
-19:[["सेतुबंध, रामेश्वरम स्थापना एवं विभीषण शरणागति","इंडियन पब्लिक स्कूल, बस्ती"],["अंगद-रावण संवाद","सावित्री विद्या विहार, बस्ती"]],
-20:[["लक्ष्मण शक्ति एवं कुम्भकर्ण वध","जागरण पब्लिक स्कूल, बस्ती"],["मेघनाद वध एवं रावण वध","पंडित चतुर्भुज इंटर कॉलेज कप्तानगंज"]],
-21:[["भगवान श्री राम की अयोध्या वापसी एवं श्री राम राज्याभिषेक","लिटिल फ्लावर स्कूल, बस्ती"]]
-};
-const sch=document.getElementById("sch");
-function showSch(d){const a=SCH[d]||[];sch.innerHTML=a.length?"<h3>"+d+" नवम्बर 2026 — आज के प्रसंग एवं प्रस्तुतकर्ता विद्यालय</h3>"+a.map(([p,n])=>'<div class="it"><div class="pr">'+p+'</div><div class="sc">🏫 '+n+"</div></div>").join(""):""}
-const DAYS=[12,13,14,15,16,17,18,19,20,21].map(d=>({d,video:""}));
 const E="https://www.youtube.com/embed/",pl=document.getElementById("pl"),lt=document.getElementById("lt"),soon=document.getElementById("soon"),vidEl=document.querySelector(".vid");
 /* लाइव शुरू करते समय टेस्ट के लिए true कर दें, बाद में false */
 const FORCE_LIVE=false;
@@ -272,7 +256,6 @@ function tick(){
  c.innerHTML='<div class="cl">'+(pre?"प्रीमियर":"प्रसारण")+' प्रारम्भ होने में शेष</div><div class="cb">'+[[D,"दिन"],[H,"घंटे"],[M,"मिनट"],[S,"सेकंड"]].map(([v,l])=>"<div><b>"+String(v).padStart(2,"0")+"</b><small>"+l+"</small></div>").join("")+"</div>";
 }
 setInterval(tick,1000);
-{const t=ist(),dd=(t.getMonth()===10&&t.getDate()>=12&&t.getDate()<=21)?t.getDate():12;showSch(dd)}
 document.getElementById("pv").innerHTML=PREVIOUS.map(v=>`<a class="vc rv in" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt=""><span class="lvb">▶ रिकॉर्डेड</span><p>${v.title}</p></a>`).join("");
 </script>
 <script>
