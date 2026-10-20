@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>लाइव एवं लीला | सनातन धर्म संस्था, बस्ती</title><meta name="description" content="श्री रामलीला महोत्सव का सीधा प्रसारण और पिछले सभी लाइव, सनातन धर्म संस्था बस्ती।"><meta name="theme-color" content="#0b0407"><link rel="icon" href="logo.webp"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet"><link rel="stylesheet" href="style1.css"><style>.soon{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:24px;background:radial-gradient(60% 60% at 50% 40%,#3a0f1c,#0b0407)}.soon h3{font-size:clamp(1.8rem,5vw,3rem)}.soon p{color:var(--mut);max-width:540px}.soon .cdn{margin-top:14px}.cdn .cl{color:var(--mut);font-size:.85rem;margin-bottom:10px}.cdn .cb{display:flex;gap:10px;justify-content:center}.cdn .cb div{min-width:66px;padding:10px 6px;border:1px solid var(--line);border-radius:14px;background:var(--card)}.cdn b{display:block;font:400 1.8rem "Rozha One";color:var(--gold);line-height:1.2}.cdn small{color:var(--mut);font-size:.72rem}@media(max-width:560px){.cdn .cb{gap:6px}.cdn .cb div{min-width:54px}.cdn b{font-size:1.4rem}}
+<!DOCTYPE html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>लाइव एवं लीला | सनातन धर्म संस्था, बस्ती</title><meta name="description" content="श्री रामलीला महोत्सव का सीधा प्रसारण और पिछले सभी लाइव, सनातन धर्म संस्था बस्ती।"><meta name="theme-color" content="#0f050a"><meta property="og:type" content="website"><meta property="og:title" content="लाइव एवं लीला | सनातन धर्म संस्था, बस्ती"><meta property="og:description" content="श्री रामलीला महोत्सव का सीधा प्रसारण और पिछले सभी लाइव, सनातन धर्म संस्था बस्ती।"><meta property="og:image" content="poster-round.webp"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="manifest" href="manifest.webmanifest"><meta name="mobile-web-app-capable" content="yes"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="style1.css"><style>.soon{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:24px;background:radial-gradient(60% 60% at 50% 40%,#3a0f1c,#0b0407)}.soon h3{font-size:clamp(1.8rem,5vw,3rem)}.soon p{color:var(--mut);max-width:540px}.soon .cdn{margin-top:14px}.cdn .cl{color:var(--mut);font-size:.85rem;margin-bottom:10px}.cdn .cb{display:flex;gap:10px;justify-content:center}.cdn .cb div{min-width:66px;padding:10px 6px;border:1px solid var(--line);border-radius:14px;background:var(--card)}.cdn b{display:block;font:400 1.8rem "Rozha One";color:var(--gold);line-height:1.2}.cdn small{color:var(--mut);font-size:.72rem}@media(max-width:560px){.cdn .cb{gap:6px}.cdn .cb div{min-width:54px}.cdn b{font-size:1.4rem}}
 /* ===== LIVE PULSE ===== */
 #lt{align-items:center;gap:8px}
 #lt::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:#ff2d2d;animation:lp 1.4s ease-out infinite}
@@ -7,7 +7,7 @@
 @keyframes lr{0%,100%{box-shadow:0 0 0 1px rgba(255,45,45,.45),0 0 16px rgba(255,45,45,.12)}50%{box-shadow:0 0 0 1px rgba(255,45,45,.95),0 0 32px rgba(255,45,45,.4)}}
 @media(prefers-reduced-motion:reduce){#lt::before,.vid.is-live{animation:none}}
 /* ===== RESPONSIVE ===== */
-html,body{max-width:100%;overflow-x:hidden}
+html,body{max-width:100%}body{overflow-x:clip}
 .vid{width:100%;max-width:100%}
 .vid iframe{width:100%;height:100%;border:0}
 #pv{grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr))!important}
@@ -94,12 +94,92 @@ html,body{max-width:100%;overflow-x:hidden}
 .sch .pr{font-size:.95rem;line-height:1.6;opacity:.9}
 .sch .sc{margin-top:2px;font-weight:700;color:#e0a92c;font-size:1.02rem}
 </style>
-</head><body data-p="live.html"><div id="hdr"></div>
+<script>document.documentElement.classList.add('js')</script><style>
+/* ===== HEADER + MOBILE MENU (self-contained) ===== */
+.mh{position:sticky;top:0;z-index:3002;display:flex;align-items:center;justify-content:space-between;gap:12px;height:68px;padding:0 max(14px,env(safe-area-inset-right)) 0 max(14px,env(safe-area-inset-left));background:rgba(11,4,7,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(224,169,44,.18)}
+.mh.open{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;border-color:transparent}
+.mh-brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.mh-brand img{width:46px;height:46px;border-radius:50%;flex:none;box-shadow:0 0 14px rgba(224,169,44,.35)}
+.mh-brand span{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+.mh-brand b{font:400 1.1rem "Rozha One",serif;color:#f3d98b;white-space:nowrap}
+.mh-brand small{font:400 .72rem Hind,sans-serif;color:#e8dccb;opacity:.8}
+.mh-d{display:none;align-items:center;gap:6px}
+.mh-d a{padding:8px 12px;border-radius:999px;color:#f1dcc0;text-decoration:none;font:500 .95rem Hind,sans-serif}
+.mh-d a:hover,.mh-d a.on{color:#f3d98b}
+.mh-d a.on{box-shadow:inset 0 -2px 0 #e0a92c;border-radius:0}
+.mh-d a.cta,.mh-ov a.cta,.mdock a.main{background:linear-gradient(135deg,#b8801a,#f3d98b 55%,#c48a1e);color:#2a0a0a;font-weight:700;border-radius:999px}
+.mh-d a.cta{padding:9px 18px;box-shadow:none}
+.mh-tg{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid rgba(224,169,44,.4);background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;padding:0;position:relative;z-index:3003}
+.mh-tg i{display:block;width:18px;height:2px;border-radius:2px;background:#f3d98b;transition:transform .3s,opacity .2s}
+.mh-tg[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.mh-tg[aria-expanded="true"] i:nth-child(2){opacity:0}
+.mh-tg[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mh-ov{position:fixed;inset:0;z-index:3001;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:90px 20px 40px;background:radial-gradient(70% 50% at 50% 40%,#520c22 0,#1a0610 62%,#0b0407 100%);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;overflow-y:auto}
+.mh-ov.open{opacity:1;visibility:visible}
+.mh-ov a{color:#f1dcc0;text-decoration:none;font:400 clamp(1.7rem,7.5vw,2.2rem) "Rozha One",serif;padding:14px 10px;text-align:center}
+.mh-ov a.on{color:#f3d98b;position:relative}
+.mh-ov a.on::after{content:"";display:block;width:78px;height:2px;background:#e0a92c;margin:10px auto 0}
+.mh-ov a.cta{font:700 1.05rem Hind,sans-serif;padding:16px 32px;margin-top:26px;box-shadow:0 8px 28px rgba(224,169,44,.3)}
+html.mh-lock,html.mh-lock body{overflow:hidden}
+/* bottom quick bar (mobile) */
+.mdock{position:fixed;z-index:800;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:4px;padding:8px;border-radius:999px;background:rgba(20,8,12,.94);border:1px solid rgba(224,169,44,.35);box-shadow:0 10px 30px rgba(0,0,0,.55)}
+.mdock a{display:flex;align-items:center;justify-content:center;gap:7px;padding:11px 14px;color:#f1dcc0;text-decoration:none;font:600 .9rem Hind,sans-serif;white-space:nowrap}
+.mdock svg{width:20px;height:20px;flex:none}
+.mdock a.main{flex:1.2;padding:12px 16px}
+.footer{padding-bottom:96px}
+.lpp{z-index:900;bottom:calc(86px + env(safe-area-inset-bottom))}
+@media(max-width:380px){.mh-brand b{font-size:.98rem}.mdock a{padding:10px 8px;font-size:.82rem}}
+@media(min-width:900px){.mh-d{display:flex}.mh-tg,.mh-ov,.mdock{display:none!important}.footer{padding-bottom:0}.lpp{bottom:max(16px,env(safe-area-inset-bottom))}}
+</style></head><body data-p="live.html">
+<header class="mh" id="mh">
+  <a class="mh-brand" href="index.html" aria-label="सनातन धर्म संस्था, बस्ती — मुखपृष्ठ"><img src="logo.webp" alt="" width="46" height="46"><span><b>सनातन धर्म संस्था</b><small>बस्ती, उत्तर प्रदेश</small></span></a>
+  <nav class="mh-d" aria-label="मुख्य मेन्यू"><a href="index.html">मुखपृष्ठ</a>
+<a href="mahotsav.html">रामलीला महोत्सव</a>
+<a href="live.html" class="on" aria-current="page">लाइव एवं लीला</a>
+<a href="sadasya.html">सदस्यगण</a>
+<a href="sahyog.html">सहयोग करें</a>
+<a class="cta" href="sahyog.html#payment">राम काज में सहभागी बनें</a></nav>
+  <button class="mh-tg" id="mhT" type="button" aria-label="मेन्यू खोलें" aria-expanded="false" aria-controls="mhO"><i></i><i></i><i></i></button>
+</header>
+<div class="mh-ov" id="mhO" aria-hidden="true"><a tabindex="-1" href="index.html">मुखपृष्ठ</a>
+<a tabindex="-1" href="mahotsav.html">रामलीला महोत्सव</a>
+<a tabindex="-1" href="live.html" class="on" aria-current="page">लाइव एवं लीला</a>
+<a tabindex="-1" href="sadasya.html">सदस्यगण</a>
+<a tabindex="-1" href="sahyog.html">सहयोग करें</a>
+<a tabindex="-1" class="cta" href="sahyog.html#payment">राम काज में सहभागी बनें</a></div>
+
+<main id="main">
 <div class="ph"><div class="wrap"><div class="crumb"><a href="index.html">मुखपृष्ठ</a> › लाइव एवं लीला</div><h1 class="gold">सीधा प्रसारण</h1><p class="sub">12 से 21 नवम्बर · प्रतिदिन सायं 6:00 – रात्रि 10:00 · श्री रामलीला महोत्सव 2026</p></div></div>
 <section style="padding-top:10px"><div class="wrap"><div class="live" style="margin-bottom:14px" id="lt">लाइव प्रसारण</div><div class="vid"><div class="soon" id="soon"><div class="eyebrow">॥ जय श्री राम ॥</div><h3 class="gold" id="st">प्रसारण शीघ्र प्रारम्भ होगा</h3><p id="sm"></p><div class="cdn" id="cdn"></div></div><iframe id="pl" style="display:none" allow="accelerometer;autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen title="वीडियो"></iframe><div id="shd" class="shd" hidden></div><button id="snd" class="snd" type="button" hidden>🔊 आवाज़ चालू</button></div><div class="acts" style="margin:20px 0;display:flex;gap:12px;flex-wrap:wrap"><a class="btn p" target="_blank" href="https://www.youtube.com/@sanatandharmsanstha/streams">YouTube पर देखें ↗</a><a class="btn" target="_blank" href="https://www.youtube.com/@sanatandharmsanstha?sub_confirmation=1">सब्सक्राइब करें</a></div>
-<div class="c" style="margin-top:50px"><div class="eyebrow">दस संध्याएँ</div><h2 class="sec-h">तारीख़ चुनें</h2><p class="sub">जिस दिन पर क्लिक करेंगे, उसी दिन का वीडियो ऊपर चलेगा।</p></div><div class="tabs" id="tb"></div><div id="sch" class="sch" aria-live="polite"></div></div></section>
+<div id="sch" class="sch" style="margin-top:40px" aria-live="polite"></div></div></section>
 <section style="padding-top:0"><div class="wrap"><div class="c"><div class="eyebrow">संग्रह</div><h2 class="sec-h">सभी <span class="gold">पिछले लाइव</span></h2></div><div class="grid g3" id="pv"></div></div></section><div class="lpp" id="lpp" role="dialog" aria-live="polite" aria-label="लाइव प्रसारण" hidden><div class="lpp-zoom"><div class="lpp-card"><span class="lpp-dot" aria-hidden="true"></span><div class="lpp-t"><b id="lppB">श्री रामलीला लाइव शुरू हो गई!</b><small id="lppS">सीधा प्रसारण अभी चल रहा है</small></div><button class="lpp-go" id="lppGo" type="button">देखें</button><button class="lpp-x" id="lppX" type="button" aria-label="बंद करें">×</button></div></div></div>
-<div id="ftr"></div><script src="main.js"></script><script>
+</main>
+
+<footer class="footer">
+  <div class="footer-main">
+    <div>
+      <div class="footer-brand"><img src="logo.webp" alt="" width="62" height="62" loading="lazy"><div><b>सनातन धर्म संस्था, बस्ती</b><small>सेवा • संस्कार • समरसता</small></div></div>
+      <p class="tag">श्री रामलीला महोत्सव आयोजन समिति (सातवाँ वर्ष)</p>
+    </div>
+    <div>
+      <h4>पृष्ठ</h4>
+      <ul><li><a href="index.html">मुखपृष्ठ</a></li><li><a href="mahotsav.html">रामलीला महोत्सव</a></li><li><a href="live.html">लाइव एवं लीला</a></li><li><a href="sadasya.html">सदस्यगण</a></li><li><a href="sahyog.html">सहयोग करें</a></li></ul>
+    </div>
+    <div>
+      <h4>जुड़ें</h4>
+      <ul>
+        <li><a href="tel:9936311711">9936311711</a></li>
+        <li><a href="tel:8787288651">8787288651</a></li>
+        <li><a href="mailto:sanatandharmasansthabasti@gmail.com">sanatandharmasansthabasti@gmail.com</a></li>
+        <li><a href="https://www.youtube.com/@sanatandharmsanstha" target="_blank" rel="noopener">YouTube ↗</a></li>
+        <li><a href="https://www.facebook.com/sanatandharmsanstha/?locale=hi_IN" target="_blank" rel="noopener">Facebook ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 सनातन धर्म संस्था, बस्ती</span><span>॥ सर्वे भवन्तु सुखिनः ॥</span></div>
+</footer>
+<nav class="mdock" aria-label="त्वरित कार्य"><a href="tel:9936311711"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span>कॉल करें</span></a><a href="#" id="mdShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2.500"/><circle cx="18" cy="6" r="2.500"/><circle cx="18" cy="18" r="2.500"/><path d="M8.200 11l7.600-4M8.200 13l7.600 4"/></svg><span>साझा करें</span></a><a class="main" href="sahyog.html#payment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c-5-3.500-8-6.500-8-10a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 3.500-3 6.500-8 10z"/></svg><span>सहयोग करें</span></a></nav>
+<script src="main.js"></script><script>
 /* केवल यही हिस्सा बदलें */
 const CHANNEL_ID="UCC-PMZzH_oargLyuGdUjAAw";
 const PREVIOUS=[["kpL2gVRiGl4","प्रथम"],["nER70fMlZOA","द्वितीय"],["cVaLj52LhrA","तृतीय"],["Z1UyScC7Om8","चतुर्थ"],["JOfshKAoNec","पंचम"],["jLIjtm09tpU","षष्टम्"],["sRQC436ueFU","सप्तम"],["KT18vv7F6P4","अष्टम"],["FLzvdbfwM-0","नवम"]].map(([id,n])=>({id,title:n+" दिवस श्री रामलीला महोत्सव, बस्ती (षष्टम वर्ष)"}));
@@ -120,7 +200,7 @@ const SCH={
 const sch=document.getElementById("sch");
 function showSch(d){const a=SCH[d]||[];sch.innerHTML=a.length?"<h3>"+d+" नवम्बर 2026 — आज के प्रसंग एवं प्रस्तुतकर्ता विद्यालय</h3>"+a.map(([p,n])=>'<div class="it"><div class="pr">'+p+'</div><div class="sc">🏫 '+n+"</div></div>").join(""):""}
 const DAYS=[12,13,14,15,16,17,18,19,20,21].map(d=>({d,video:""}));
-const E="https://www.youtube.com/embed/",pl=document.getElementById("pl"),tb=document.getElementById("tb"),lt=document.getElementById("lt"),soon=document.getElementById("soon"),vidEl=document.querySelector(".vid");
+const E="https://www.youtube.com/embed/",pl=document.getElementById("pl"),lt=document.getElementById("lt"),soon=document.getElementById("soon"),vidEl=document.querySelector(".vid");
 /* लाइव शुरू करते समय टेस्ट के लिए true कर दें, बाद में false */
 const FORCE_LIVE=false;
 const LIVE_SRC=E+"live_stream?channel="+CHANNEL_ID;
@@ -192,30 +272,17 @@ function tick(){
  c.innerHTML='<div class="cl">'+(pre?"प्रीमियर":"प्रसारण")+' प्रारम्भ होने में शेष</div><div class="cb">'+[[D,"दिन"],[H,"घंटे"],[M,"मिनट"],[S,"सेकंड"]].map(([v,l])=>"<div><b>"+String(v).padStart(2,"0")+"</b><small>"+l+"</small></div>").join("")+"</div>";
 }
 setInterval(tick,1000);
-DAYS.forEach((x,i)=>{const b=document.createElement("button");b.innerHTML="<b>"+x.d+"</b><br><small>नव.</small>";b.onclick=()=>{[...tb.children].forEach(c=>c.classList.remove("on"));b.classList.add("on");showSch(x.d);if(x.video){manual=true;showPlayer(E+x.video.replace(/.*(v=|youtu.be\/)/,""),false)}else{manual=false;auto()}};tb.appendChild(b)});
-{const t=ist(),dd=(t.getMonth()===10&&t.getDate()>=12&&t.getDate()<=21)?t.getDate():12,i=dd-12;tb.children[i].classList.add("on");showSch(dd)}
-function pulseTab(){const t=ist(),d=t.getDate();[...tb.children].forEach(c=>c.classList.remove("lv"));if(t.getMonth()===10&&d>=12&&d<=21&&state()==="live")tb.children[d-12].classList.add("lv")}
-pulseTab();setInterval(pulseTab,30000);
+{const t=ist(),dd=(t.getMonth()===10&&t.getDate()>=12&&t.getDate()<=21)?t.getDate():12;showSch(dd)}
 document.getElementById("pv").innerHTML=PREVIOUS.map(v=>`<a class="vc rv in" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt=""><span class="lvb">▶ रिकॉर्डेड</span><p>${v.title}</p></a>`).join("");
-</script><style>
-.navfb{position:fixed;top:0;left:0;right:0;z-index:10000;display:flex;align-items:center;gap:6px;padding:8px max(16px,env(safe-area-inset-right)) 8px max(16px,env(safe-area-inset-left));padding-top:max(8px,env(safe-area-inset-top));background:linear-gradient(180deg,rgba(20,6,12,.97),rgba(11,4,7,.92));backdrop-filter:blur(10px);border-bottom:1px solid rgba(224,169,44,.35);box-shadow:0 6px 24px rgba(0,0,0,.45);font-family:Hind,sans-serif;box-sizing:border-box}
-.navfb .br{display:flex;align-items:center;gap:10px;color:#f3d98b;text-decoration:none;font-weight:700;font-size:1rem;line-height:1.15;border:0;padding:0;margin-right:auto;min-width:0}
-.navfb .br img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:1px solid rgba(224,169,44,.6);flex:0 0 auto}
-.navfb .br span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.navfb a{color:#f3d98b;text-decoration:none;font-size:.92rem;font-weight:600;padding:7px 13px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
-.navfb a:hover,.navfb a.on{border-color:rgba(224,169,44,.55);background:rgba(224,169,44,.1)}
-body.fbnav .ph{padding-top:28px!important}
-@media(max-width:560px){.navfb .br span{display:none}.navfb a{padding:7px 10px;font-size:.86rem}}
-</style>
+</script>
 <script>
-/* हैडर/मेन्यू न दिखे तो अपने-आप पीछे जाने वाला बटन-बार जुड़ जाता है */
-window.addEventListener("load",function(){setTimeout(function(){
-  var h=document.getElementById("hdr");
-  if(h&&h.offsetHeight>20&&h.querySelector("a"))return;
-  var n=document.createElement("nav");n.className="navfb";n.setAttribute("aria-label","मुख्य मेन्यू");
-  n.innerHTML='<a class="br" href="index.html"><img src="logo.webp" alt="" onerror="this.remove()"><span>सनातन धर्म संस्थान, बस्ती</span></a><a href="index.html">मुखपृष्ठ</a><a href="mahotsav.html">महोत्सव</a><a class="on" href="live.html">लाइव</a><a href="sadasya.html">सदस्यगण</a><a href="sahyog.html">सहयोग</a>';
-  document.body.insertBefore(n,document.body.firstChild);
-  document.body.classList.add("fbnav");document.body.style.paddingTop=n.offsetHeight+"px";
-},700)});
+(function(){var h=document.documentElement,H=document.getElementById("mh"),T=document.getElementById("mhT"),O=document.getElementById("mhO");
+function set(o){H.classList.toggle("open",o);O.classList.toggle("open",o);h.classList.toggle("mh-lock",o);T.setAttribute("aria-expanded",o);T.setAttribute("aria-label",o?"मेन्यू बंद करें":"मेन्यू खोलें");O.setAttribute("aria-hidden",!o);O.querySelectorAll("a").forEach(function(a){a.tabIndex=o?0:-1})}
+T.addEventListener("click",function(){set(!O.classList.contains("open"))});
+O.addEventListener("click",function(e){if(e.target.closest("a"))set(false)});
+addEventListener("keydown",function(e){if(e.key==="Escape")set(false)});
+addEventListener("resize",function(){if(innerWidth>=900)set(false)});
+var sh=document.getElementById("mdShare");if(sh)sh.addEventListener("click",function(e){e.preventDefault();var d={title:document.title,url:"https://"+location.host+"/"};if(navigator.share){navigator.share(d).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(d.url).then(function(){alert("लिंक कॉपी हो गया")})}});
+})();
 </script>
 </body></html>
