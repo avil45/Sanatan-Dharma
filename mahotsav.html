@@ -182,6 +182,14 @@
     box.appendChild(el);
     renderSchedule(d,el);
   }
+  /* हर विद्यालय की प्रस्तुति का समय: सायं 6:00 – रात्रि 10:00 */
+  var TM='सायं 6:00 – रात्रि 10:00';
+  var re=/(सायं|शाम|रात्रि)?\s*[0-9०-९]{1,2}[:.][0-9०-९]{2}\s*(बजे)?(\s*(–|-|से|to)\s*(सायं|शाम|रात्रि)?\s*[0-9०-९]{1,2}[:.][0-9०-९]{2}\s*(बजे)?(\s*तक)?)?/;
+  document.querySelectorAll('#sched .sp-item').forEach(function(it){
+    var done=false,w=document.createTreeWalker(it,NodeFilter.SHOW_TEXT,null);
+    while(w.nextNode()){var n=w.currentNode;if(re.test(n.nodeValue)){n.nodeValue=n.nodeValue.replace(re,TM);done=true}}
+    if(!done&&!it.querySelector('.sp-time')){var p=document.createElement('p');p.className='sp-s sp-time';p.textContent='\uD83D\uDD58 '+TM;it.appendChild(p)}
+  });
   if(td){var t=document.getElementById('din-'+td);if(t&&location.hash==='#schedule-today')t.scrollIntoView({behavior:'smooth',block:'start'})}
 })();
 </script>
