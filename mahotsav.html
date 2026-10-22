@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="श्री रामलीला महोत्सव | सनातन धर्म संस्था, बस्ती">
 <meta property="og:description" content="श्री रामलीला महोत्सव 2026 — बस्ती मंडल के लगभग 20 विद्यालयों के 600 बच्चों द्वारा प्रभु श्रीराम के जीवन-चरित्र का मंचन। 12–21 नवम्बर, सक्सेरिया इंटर कॉलेज।">
-<meta property="og:image" content="poster.webp">
+<meta property="og:image" content="https://sanatandharmasansthabasti.org/banner.jpg">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="manifest" href="manifest.webmanifest">
@@ -49,6 +49,9 @@
 .sp-item h4{font-family:var(--f-serif);font-weight:400;font-size:1.15rem;line-height:1.55;color:var(--text);margin:4px 0 10px}
 .sp-s{display:flex;gap:8px;color:var(--text-soft);font-size:.95rem;line-height:1.5;margin:0}
 @media(max-width:640px){.sp-d{width:60px;height:60px}.sp-badge{margin-left:0}}
+/* पोस्टर / बैनर चित्र */
+.poster-frame picture{display:block}
+.poster-frame img{display:block;width:100%;height:auto}
 </style>
 </head>
 <body>
@@ -93,7 +96,13 @@
 <section class="section section-paper">
   <div class="event-layout">
     <div class="poster-col reveal left">
-      <div class="poster-frame"><img src="poster.webp" alt="श्री रामलीला महोत्सव का पोस्टर" width="626" height="939" data-zoom></div>
+      <div class="poster-frame">
+        <picture>
+          <source srcset="banner.webp" type="image/webp">
+          <source srcset="banner.jpg" type="image/jpeg">
+          <img src="banner.png" alt="श्री रामलीला महोत्सव का पोस्टर" width="626" height="939" data-zoom decoding="async" onerror="this.onerror=null;this.src='banner.jpg'">
+        </picture>
+      </div>
       <p class="note">आयोजन का आमंत्रण पोस्टर · बड़ा देखने के लिए छुएँ</p>
     </div>
     <div class="event-details reveal right">
